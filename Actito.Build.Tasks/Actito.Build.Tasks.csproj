@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <!--suppress MsbuildTargetFrameworkTagInspection -->
+        <TargetFrameworks>net9.0</TargetFrameworks>
+        <Version>1.0.0</Version>
+        
+        <!--
+          This changes the default folder where assemblies will be placed in the package.
+          The default is 'lib', but that is incorrect since these assemblies are meant to be used
+          by MSBuild, and meant to be referenced as APIs from the NuGet package.
+        -->
+        <BuildOutputTargetFolder>tools</BuildOutputTargetFolder>
+
+        <!-- For the sake of demoing, put the package output into a parent folder -->
+        <PackageOutputPath>..\packages</PackageOutputPath>
+
+        <!-- Suppresses the warnings about the package not having assemblies in lib/*/.dll. -->
+        <!-- <NoPackageAnalysis>true</NoPackageAnalysis> -->
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Build.Framework" Version="17.13.9" PrivateAssets="All" />
+      <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.13.9" PrivateAssets="All" />
+      <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.13.9" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="build\**\*" PackagePath="build\" />
+        <Content Include="buildTransitive\**\*" PackagePath="buildTransitive\" />
+    </ItemGroup>
+</Project>
