@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.UserInbox.Android.Binding</RootNamespace>
+
+        <!--
+          Enable trim analyzers for Android class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AndroidMavenLibrary
+                Include="com.actito:actito-user-inbox"
+                Version="5.0.0-canary.2"
+                VerifyDependencies="false"
+                Bind="true"
+                Repository="https://maven.notifica.re/prereleases"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Actito.Android.Binding\Actito.Android.Binding.csproj"/>
+    </ItemGroup>
+</Project>
