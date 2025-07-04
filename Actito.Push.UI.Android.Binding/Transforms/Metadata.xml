@@ -1,0 +1,13 @@
+﻿<metadata>
+  <attr path="/api/package[@name='com.actito.push.ui']" name="managedName">ActitoSdk.Push.UI.Android.Binding</attr>
+  
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.push.ui.content')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.push.ui.internal')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.push.ui.ktx')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.push.ui.models')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.push.ui.notifications')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.push.ui.utils')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.push.ui.databinding')]" />
+
+  <remove-node path="/api/package[@name='com.actito.push.ui']/class[@name='ActitoOptionsKt']" />
+</metadata>

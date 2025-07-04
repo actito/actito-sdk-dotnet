@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.Push.UI</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Actito.Push.UI.Core\Actito.Push.UI.Core.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.Contains('android'))">
+        <ProjectReference Include="..\Actito.Push.UI.Android\Actito.Push.UI.Android.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.Contains('ios'))">
+        <ProjectReference Include="..\Actito.Push.UI.iOS\Actito.Push.UI.iOS.csproj"/>
+    </ItemGroup>
+</Project>

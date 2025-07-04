@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.Push.UI.Android.Binding</RootNamespace>
+        <!--
+          Enable trim analyzers for Android class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AndroidMavenLibrary
+                Include="com.actito:actito-push-ui"
+                Version="5.0.0-canary.2"
+                VerifyDependencies="false"
+                Bind="true"
+                Repository="https://maven.notifica.re/prereleases"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Actito.Android.Binding\Actito.Android.Binding.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.2.0.2"/>
+        <PackageReference Include="Xamarin.AndroidX.DataBinding.ViewBinding" Version="8.2.2.1"/>
+        <PackageReference Include="Xamarin.GooglePlayServices.Maps" Version="119.0.0.4"/>
+    </ItemGroup>
+</Project>
