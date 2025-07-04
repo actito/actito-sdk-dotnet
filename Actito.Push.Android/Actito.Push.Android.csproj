@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.Push.Android</RootNamespace>
+
+        <!--
+          Enable trim analyzers for Android class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Actito.Android\Actito.Android.csproj"/>
+
+        <ProjectReference Include="..\Actito.Push.Core\Actito.Push.Core.csproj"/>
+        <ProjectReference Include="..\Actito.Push.Android.Binding\Actito.Push.Android.Binding.csproj"/>
+    </ItemGroup>
+</Project>

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.Push.iOS</RootNamespace>
+
+        <!--
+          Enable trim analyzers for class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Actito.iOS\Actito.iOS.csproj"/>
+
+        <ProjectReference Include="..\Actito.Push.Core\Actito.Push.Core.csproj"/>
+        <ProjectReference Include="..\Actito.Push.iOS.Binding\Actito.Push.iOS.Binding.csproj"/>
+    </ItemGroup>
+</Project>

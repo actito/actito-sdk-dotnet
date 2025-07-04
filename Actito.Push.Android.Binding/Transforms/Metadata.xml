@@ -1,0 +1,11 @@
+﻿<metadata>
+  <attr path="/api/package[@name='com.actito.push']" name="managedName">ActitoSdk.Push.Android.Binding</attr>
+  <attr path="/api/package[@name='com.actito.push.ktx']" name="managedName">ActitoSdk.Push.Android.Binding.Ktx</attr>
+  <attr path="/api/package[@name='com.actito.push.models']" name="managedName">ActitoSdk.Push.Android.Binding.Models</attr>
+
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.push.internal')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.push')]/class[contains(@name, 'JsonAdapter')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.push')]/class[contains(@name, '.Creator')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.push')]/class[contains(@name, '.Companion')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.push')]/class/field[contains(@type, '.Companion')]" />
+</metadata>
