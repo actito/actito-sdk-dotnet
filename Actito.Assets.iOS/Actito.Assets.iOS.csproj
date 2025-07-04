@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.Assets.iOS</RootNamespace>
+
+        <!--
+          Enable trim analyzers for class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Actito.iOS\Actito.iOS.csproj"/>
+
+        <ProjectReference Include="..\Actito.Assets.Core\Actito.Assets.Core.csproj"/>
+        <ProjectReference Include="..\Actito.Assets.iOS.Binding\Actito.Assets.iOS.Binding.csproj"/>
+    </ItemGroup>
+</Project>
