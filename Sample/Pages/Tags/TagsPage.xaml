@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Sample.Views"
+             xmlns:viewModels="clr-namespace:Sample.ViewModels"
+             x:Class="Sample.Pages.Tags.TagsPage">
+
+    <ContentPage.BindingContext>
+        <viewModels:TagsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout
+                HorizontalOptions="FillAndExpand"
+                Margin="12"
+                Spacing="8">
+
+                <FlexLayout Direction="Row">
+                    <Label
+                        Text="Device Tags"
+                        TextTransform="Uppercase"
+                        FontSize="12"
+                        FlexLayout.Grow="1" />
+                </FlexLayout>
+
+                <views:CardView>
+                    <VerticalStackLayout HorizontalOptions="FillAndExpand" Padding="0, 8">
+
+                        <CollectionView ItemsSource="{Binding Tags}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding .}" Padding="8, 0" />
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        
+                        <Label
+                            Text="No Tags"
+                            TextTransform="Uppercase"
+                            FontSize="12"
+                            IsVisible="False"
+                            Padding="8, 0">
+
+                            <Label.Triggers>
+                                <DataTrigger
+                                    TargetType="Label"
+                                    Binding="{Binding Tags.Count, FallbackValue='0'}"
+                                    Value="0">
+                                    <Setter Property="IsVisible" Value="True" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </VerticalStackLayout>
+                </views:CardView>
+
+                <views:CardView Padding="0, 18, 0, 0">
+                    <VerticalStackLayout HorizontalOptions="FillAndExpand">
+                        <Button
+                            Text="Fetch Tags"
+                            Command="{Binding FetchTagsCommand}"
+                            CornerRadius="0" />
+
+                        <views:HorizontalDivider />
+
+                        <Button
+                            Text="Add Tags"
+                            Command="{Binding AddTagsCommand}"
+                            CornerRadius="0" />
+
+                        <views:HorizontalDivider />
+
+                        <Button
+                            Text="Remove Tag"
+                            Command="{Binding RemoveTagCommand}"
+                            CornerRadius="0" />
+
+                        <views:HorizontalDivider />
+
+                        <Button
+                            Text="Clear Tags"
+                            Command="{Binding ClearTagsCommand}"
+                            CornerRadius="0" />
+                    </VerticalStackLayout>
+                </views:CardView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

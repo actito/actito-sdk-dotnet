@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Sample.Models"
+             xmlns:views="clr-namespace:Sample.Views"
+             xmlns:viewModels="clr-namespace:Sample.ViewModels"
+             x:Class="Sample.Pages.Home.Views.GeoCardView">
+
+    <ContentView.BindingContext>
+        <viewModels:GeoViewModel />
+    </ContentView.BindingContext>
+
+    <VerticalStackLayout Spacing="8">
+        <FlexLayout Direction="Row">
+            <Label
+                Text="Geo"
+                Style="{x:StaticResource CardHeaderLabel}"
+                VerticalOptions="End"
+                FlexLayout.Grow="1" />
+
+            <Label LineBreakMode="WordWrap" HorizontalTextAlignment="End">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="ⓘ" FontSize="22" FontAttributes="Bold">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ShowGeoStatusInfo" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </FlexLayout>
+
+        <views:CardView>
+            <VerticalStackLayout>
+                <FlexLayout Direction="Row" Padding="8, 0">
+                    <HorizontalStackLayout FlexLayout.Grow="1" VerticalOptions="Center">
+                        <Label
+                            Text="{x:Static models:Icons.Location}"
+                            VerticalTextAlignment="Center"
+                            Style="{x:StaticResource MaterialIconRegular}" />
+
+                        <Label
+                            Text="Location"
+                            Style="{x:StaticResource IconLabel}" />
+                    </HorizontalStackLayout>
+
+                    <views:SampleSwitch
+                        x:Name="LocationSwitch"
+                        IsCodeToggled="{Binding HasLocationEnabled}"
+                        UserToggled="OnLocationSwitchToggled" />
+                </FlexLayout>
+
+                <views:HorizontalDivider Padding="36, 0,0,0" />
+
+                <ContentView Padding="8, 8">
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="NavigateToBeacons" />
+                    </ContentView.GestureRecognizers>
+
+                    <views:NavigationRowView
+                        IconText="{x:Static models:Icons.Bluetooth}"
+                        LabelText="Beacons" />
+                </ContentView>
+            </VerticalStackLayout>
+        </views:CardView>
+    </VerticalStackLayout>
+</ContentView>

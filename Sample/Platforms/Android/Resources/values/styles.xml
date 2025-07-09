@@ -1,0 +1,6 @@
+<resources>
+  <style name="AppTheme.Translucent" parent="Theme.AppCompat.DayNight">
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowBackground">@android:color/transparent</item>
+  </style>
+</resources>

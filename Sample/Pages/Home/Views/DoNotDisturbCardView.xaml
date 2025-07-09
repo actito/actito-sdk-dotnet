@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Sample.Models"
+             xmlns:views="clr-namespace:Sample.Views"
+             xmlns:viewModels="clr-namespace:Sample.ViewModels"
+             x:Class="Sample.Pages.Home.Views.DoNotDisturbCardView">
+
+    <ContentView.BindingContext>
+        <viewModels:DoNotDisturbViewModel />
+    </ContentView.BindingContext>
+
+    <views:CardView>
+        <FlexLayout Direction="Row" Padding="8, 0">
+            <HorizontalStackLayout FlexLayout.Grow="1" VerticalOptions="Center">
+                <Label
+                    Text="{x:Static models:Icons.DnD}"
+                    VerticalTextAlignment="Center"
+                    Style="{x:StaticResource MaterialIconRegular}" />
+
+                <Label
+                    Text="Do Not Disturb"
+                    Style="{x:StaticResource IconLabel}" />
+            </HorizontalStackLayout>
+
+            <views:SampleSwitch
+                IsCodeToggled="{Binding HasDnDEnabled}"
+                UserToggled="OnDoNotDisturbSwitchToggled" />
+        </FlexLayout>
+    </views:CardView>
+</ContentView>

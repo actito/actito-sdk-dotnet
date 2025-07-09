@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sample.Views.CardView">
+
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <Grid HorizontalOptions="Fill" VerticalOptions="Start">
+                <Border Stroke="Gray"
+                        StrokeThickness="1"
+                        BackgroundColor="White"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Start">
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8" />
+                    </Border.StrokeShape>
+
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                                Opacity="0.3"
+                                Offset="5,5"
+                                Radius="10" />
+                    </Border.Shadow>
+
+                    <ContentPresenter />
+                </Border>
+            </Grid>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>

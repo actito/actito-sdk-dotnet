@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Sample.Views"
+             xmlns:models="clr-namespace:Sample.Models"
+             x:Class="Sample.Pages.Home.Views.DeviceCardView"
+             x:Name="This">
+
+    <VerticalStackLayout Spacing="8">
+
+        <FlexLayout Direction="Row">
+            <Label
+                Text="Device"
+                Style="{x:StaticResource CardHeaderLabel}"
+                FlexLayout.Grow="1" />
+        </FlexLayout>
+
+        <views:CardView>
+            <ContentView Padding="8, 8">
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToDevice" />
+                </ContentView.GestureRecognizers>
+
+                <views:NavigationRowView
+                    IconText="{x:Static models:Icons.Smartphone}"
+                    LabelText="Current Device" />
+            </ContentView>
+        </views:CardView>
+    </VerticalStackLayout>
+</ContentView>

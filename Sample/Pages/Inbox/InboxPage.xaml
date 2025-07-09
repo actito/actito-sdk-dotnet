@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Sample.Models"
+             xmlns:inboxViews="clr-namespace:Sample.Pages.Inbox.Views"
+             xmlns:viewModels="clr-namespace:Sample.ViewModels"
+             x:Class="Sample.Pages.Inbox.InboxPage"
+             x:Name="This"
+             Title="Inbox">
+
+    <ContentPage.BindingContext>
+        <viewModels:InboxViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding RefreshCommand}">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIconsRegular"
+                    Color="Black"
+                    Size="Title"
+                    Glyph="{x:Static models:Icons.Refresh}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+
+        <ToolbarItem Command="{Binding MarkAllAsReadCommand}">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIconsRegular"
+                    Color="Black"
+                    Size="Title"
+                    Glyph="{x:Static models:Icons.MarkAsRead}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+
+        <ToolbarItem Command="{Binding ClearCommand}">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIconsRegular"
+                    Color="Black"
+                    Size="Title"
+                    Glyph="{x:Static models:Icons.Clear}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding Items}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <inboxViews:InboxItemView
+                        Item="{Binding .}">
+
+                        <inboxViews:InboxItemView.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={x:Reference This}, Path=ItemTappedCommand}"
+                                CommandParameter="{Binding}" />
+                        </inboxViews:InboxItemView.GestureRecognizers>
+                    </inboxViews:InboxItemView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>
