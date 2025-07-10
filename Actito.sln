@@ -134,6 +134,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.InAppMessaging.Andro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Geo", "Actito.Geo\Actito.Geo.csproj", "{AB80182F-E266-852A-32BA-D6A77C88CC40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.UserInbox", "Sample.UserInbox\Sample.UserInbox.csproj", "{FB62BB2E-7E9C-4D30-8629-77789A858DD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -404,6 +406,10 @@ Global
 		{AB80182F-E266-852A-32BA-D6A77C88CC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB80182F-E266-852A-32BA-D6A77C88CC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB80182F-E266-852A-32BA-D6A77C88CC40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB62BB2E-7E9C-4D30-8629-77789A858DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB62BB2E-7E9C-4D30-8629-77789A858DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB62BB2E-7E9C-4D30-8629-77789A858DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB62BB2E-7E9C-4D30-8629-77789A858DD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Sample.UserInbox.Views"
+             x:Class="Sample.UserInbox.Pages.Home.Views.AuthenticationFlowCardView"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Name="This">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <VerticalStackLayout Spacing="8">
+        <FlexLayout Direction="Row">
+            <Label
+                Text="Authentication Flow"
+                Style="{x:StaticResource CardHeaderLabel}"
+                VerticalOptions="End"
+                FlexLayout.Grow="1" />
+        </FlexLayout>
+
+        <views:CardView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0"
+                        Text="Logout"
+                        Command="{Binding Source={x:Reference This}, Path=LogoutCommand}"
+                        IsEnabled="{Binding Source={x:Reference This}, Path=IsLoggedIn}"
+                        CornerRadius="0" />
+
+                <BoxView
+                    Grid.Column="1"
+                    WidthRequest="1"
+                    BackgroundColor="Gray" />
+
+                <Button Grid.Column="2"
+                        Text="Login"
+                        Command="{Binding Source={x:Reference This}, Path=LoginCommand}"
+                        IsEnabled="{Binding Source={x:Reference This}, Path=IsLoggedIn, Converter={StaticResource InvertedBoolConverter}}"
+                        CornerRadius="0" />
+            </Grid>
+        </views:CardView>
+    </VerticalStackLayout>
+</ContentView>
