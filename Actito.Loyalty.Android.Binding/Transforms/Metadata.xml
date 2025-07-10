@@ -1,0 +1,13 @@
+﻿<metadata>
+  <attr path="/api/package[@name='com.actito.loyalty']" name="managedName">ActitoSdk.Loyalty.Android.Binding</attr>
+  <attr path="/api/package[@name='com.actito.loyalty.models']" name="managedName">ActitoSdk.Loyalty.Android.Binding.Models</attr>
+
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.loyalty.internal')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.loyalty.ktx')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.loyalty')]/class[contains(@name, 'JsonAdapter')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.loyalty')]/class[contains(@name, '.Creator')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.loyalty')]/class[contains(@name, '.Companion')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.loyalty')]/class/field[contains(@type, '.Companion')]" />
+
+  <remove-node path="/api/package[@name='com.actito.loyalty']/class[@name='ActitoOptionsKt']" />
+</metadata>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Sample.Models"
+             xmlns:views="clr-namespace:Sample.Views"
+             xmlns:viewModels="clr-namespace:Sample.ViewModels"
+             x:Class="Sample.Pages.Home.Views.InAppMessagingCardView">
+
+    <ContentView.BindingContext>
+        <viewModels:InAppMessagingViewModel />
+    </ContentView.BindingContext>
+
+    <VerticalStackLayout Spacing="8">
+
+        <FlexLayout Direction="Row">
+            <Label
+                Text="In App Messaging"
+                Style="{x:StaticResource CardHeaderLabel}"
+                FlexLayout.Grow="1" />
+        </FlexLayout>
+
+        <views:CardView>
+            <VerticalStackLayout>
+                <FlexLayout Direction="Row" Padding="8, 0">
+                    <HorizontalStackLayout FlexLayout.Grow="1" VerticalOptions="Center">
+                        <Label
+                            Text="{x:Static models:Icons.InAppMessage}"
+                            VerticalTextAlignment="Center"
+                            Style="{x:StaticResource MaterialIconRegular}" />
+
+                        <Label
+                            Text="Evaluate Context"
+                            Style="{x:StaticResource IconLabel}" />
+                    </HorizontalStackLayout>
+
+                    <views:SampleSwitch
+                        IsToggled="{Binding EvaluateContext}" />
+                </FlexLayout>
+
+                <views:HorizontalDivider Padding="36, 0,0,0" />
+
+                <FlexLayout Direction="Row" Padding="8, 0">
+                    <HorizontalStackLayout FlexLayout.Grow="1" VerticalOptions="Center">
+                        <Label
+                            Text="{x:Static models:Icons.TimerOff}"
+                            VerticalTextAlignment="Center"
+                            Style="{x:StaticResource MaterialIconRegular}" />
+
+                        <Label
+                            Text="Suppressed"
+                            Style="{x:StaticResource IconLabel}" />
+                    </HorizontalStackLayout>
+
+                    <views:SampleSwitch
+                        IsToggled="{Binding Suppressed}" />
+                </FlexLayout>
+            </VerticalStackLayout>
+        </views:CardView>
+    </VerticalStackLayout>
+</ContentView>

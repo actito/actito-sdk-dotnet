@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.Geo.Android</RootNamespace>
+        <!--
+          Enable trim analyzers for Android class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Actito.Geo.Core\Actito.Geo.Core.csproj"/>
+        <ProjectReference Include="..\Actito.Geo.Android.Binding\Actito.Geo.Android.Binding.csproj"/>
+    </ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+<!-- 
+  This file is automatically imported by NuGet, exposing assets that flow transitively to any consuming project. 
+-->
+<Project>
+    <Import Project="..\build\Actito.Build.Tasks.targets" />
+</Project>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Sample.ViewModels"
+             x:Class="Sample.Pages.Beacons.BeaconsPage"
+             Title="Beacons">
+
+    <ContentPage.BindingContext>
+        <viewModels:BeaconsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <VerticalStackLayout HorizontalOptions="FillAndExpand" Margin="12" Spacing="8">
+            <CollectionView ItemsSource="{Binding Beacons}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout FlexLayout.Grow="1" Margin="4, 0, 0,0 ">
+                            <Label Text="{Binding Name}" FontSize="Subtitle"
+                                   FontAttributes="Bold" />
+
+                            <HorizontalStackLayout>
+                                <Label Text="{Binding Major}" FontSize="Small" />
+                                <Label Text=":" FontSize="Small" />
+                                <Label Text="{Binding Minor}" FontSize="Small" />
+                            </HorizontalStackLayout>
+
+                            <Label Text="{Binding Id}" FontSize="Small" />
+
+                            <Label Text="{Binding Proximity}" FontSize="Small" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

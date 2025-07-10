@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Name="This"
+             x:Class="Sample.Pages.Inbox.Views.InboxItemView">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <FlexLayout Margin="12" VerticalOptions="Center">
+        <ContentView>
+            <Image
+                Source="{Binding Item.Notification.Attachments[0].Uri, Source={x:Reference This}}"
+                BackgroundColor="LightGray"
+                Aspect="AspectFill"
+                HeightRequest="60"
+                WidthRequest="60" />
+        </ContentView>
+
+        <VerticalStackLayout FlexLayout.Grow="1" Margin="4, 0, 0,0 ">
+            <Label
+                Text="{Binding Item.Notification.Time, Source={x:Reference This}}"
+                FontSize="Micro" />
+
+            <Label
+                Text="{Binding Item.Notification.Title, Source={x:Reference This}}"
+                FontSize="Subtitle"
+                FontAttributes="Bold" />
+
+            <Label
+                Text="{Binding Item.Notification.Message, Source={x:Reference This}}"
+                FontSize="Small" />
+
+            <Label
+                Text="{Binding Item.Notification.Type, Source={x:Reference This}}"
+                FontSize="Caption"
+                FontAttributes="Italic" />
+        </VerticalStackLayout>
+
+        <ContentView>
+            <BoxView
+                IsVisible="{Binding Item.Opened, Source={x:Reference This}, Converter={StaticResource InvertedBoolConverter}}"
+                WidthRequest="10"
+                HeightRequest="10"
+                CornerRadius="5"
+                BackgroundColor="Blue" />
+        </ContentView>
+    </FlexLayout>
+</ContentView>

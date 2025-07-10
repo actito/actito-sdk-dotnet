@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.Scannables.Android</RootNamespace>
+        <!--
+          Enable trim analyzers for Android class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Actito.Android\Actito.Android.csproj"/>
+
+        <ProjectReference Include="..\Actito.Scannables.Core\Actito.Scannables.Core.csproj"/>
+        <ProjectReference Include="..\Actito.Scannables.Android.Binding\Actito.Scannables.Android.Binding.csproj"/>
+    </ItemGroup>
+</Project>

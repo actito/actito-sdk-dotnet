@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.Android.Binding</RootNamespace>
+
+        <!--
+          Enable trim analyzers for Android class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AndroidMavenLibrary
+                Include="com.actito:actito"
+                Version="5.0.0-canary.2"
+                VerifyDependencies="false"
+                Bind="true"
+                Repository="https://maven.notifica.re/prereleases"/>
+
+        <AndroidMavenLibrary
+                Include="com.actito:actito-utilities"
+                Version="5.0.0-canary.2"
+                VerifyDependencies="false"
+                Bind="false"
+                Repository="https://maven.notifica.re/prereleases"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Actito.Build.Tasks" Version="1.0.0"/>
+
+        <PackageReference Include="Xamarin.Kotlin.Parcelize.Runtime" Version="1.9.23.3" />
+        <PackageReference Include="Xamarin.KotlinX.Coroutines.Android" Version="1.9.0.2" />
+        <PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.10.0" />
+        <PackageReference Include="Xamarin.AndroidX.Work.Work.Runtime.Ktx" Version="2.10.0.3" />
+        <PackageReference Include="Xamarin.Android.Binding.InstallReferrer" Version="2.2.0" />
+        <PackageReference Include="Xamarin.AndroidX.Room.Room.Ktx" Version="2.6.1.9" />
+        <PackageReference Include="Square.OkHttp3" Version="4.12.0.5" />
+        <PackageReference Include="Square.OkHttp3.LoggingInterceptor" Version="4.12.0.5" />
+        <PackageReference Include="Square.Moshi" Version="1.13.0" />
+        <PackageReference Include="Square.Moshi.Adapters" Version="1.13.0" />
+        <PackageReference Include="Square.Moshi.Kotlin" Version="1.13.0" />
+        <PackageReference Include="Xamarin.Android.Glide" Version="4.16.0.6" />
+
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData.Ktx" Version="2.8.7.2" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.8.7.2" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime.Ktx" Version="2.8.7.2" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Service" Version="2.8.7.2" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel" Version="2.8.7.2" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel.Ktx" Version="2.8.7.2" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModelSavedState" Version="2.8.7.2" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Process" Version="2.8.7.2" />
+        <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.4.5.2" />
+        <PackageReference Include="Xamarin.AndroidX.Collection.Ktx" Version="1.4.5.2" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,15 @@
+﻿<metadata>
+  <attr path="/api/package[@name='com.actito.iam']" name="managedName">ActitoSdk.InAppMessaging.Android.Binding</attr>
+  <attr path="/api/package[@name='com.actito.iam.models']" name="managedName">ActitoSdk.InAppMessaging.Android.Binding.Models</attr>
+
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.iam.internal')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.iam.ktx')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.iam.ui')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.iam.databinding')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.iam')]/class[contains(@name, 'JsonAdapter')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.iam')]/class[contains(@name, '.Creator')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.iam')]/class[contains(@name, '.Companion')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.iam')]/class/field[contains(@type, '.Companion')]" />
+
+  <remove-node path="/api/package[@name='com.actito.iam']/class[@name='ActitoOptionsKt']" />
+</metadata>

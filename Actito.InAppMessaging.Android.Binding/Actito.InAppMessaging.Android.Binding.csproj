@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.InAppMessaging.Android.Binding</RootNamespace>
+
+        <!--
+          Enable trim analyzers for Android class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AndroidMavenLibrary
+                Include="com.actito:actito-in-app-messaging"
+                Version="5.0.0-canary.2"
+                VerifyDependencies="false"
+                Bind="true"
+                Repository="https://maven.notifica.re/prereleases"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.7.0.5"/>
+        <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.2.0.2"/>
+        <PackageReference Include="Xamarin.AndroidX.DataBinding.ViewBinding" Version="8.2.2.1"/>
+    </ItemGroup>
+</Project>

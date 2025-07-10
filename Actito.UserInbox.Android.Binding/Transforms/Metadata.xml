@@ -1,0 +1,11 @@
+﻿<metadata>
+  <attr path="/api/package[@name='com.actito.inbox.user']" name="managedName">ActitoSdk.UserInbox.Android.Binding</attr>
+  <attr path="/api/package[@name='com.actito.inbox.user.models']" name="managedName">ActitoSdk.UserInbox.Android.Binding.Models</attr>
+
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.inbox.user.internal')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.inbox.user.ktx')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.inbox.user')]/class[contains(@name, 'JsonAdapter')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.inbox.user')]/class[contains(@name, '.Creator')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.inbox.user')]/class[contains(@name, '.Companion')]" />
+  <remove-node path="/api/package[starts-with(@name, 'com.actito.inbox.user')]/class/field[contains(@type, '.Companion')]" />
+</metadata>

@@ -1,0 +1,14 @@
+﻿<metadata>
+    <attr path="/api/package[@name='com.actito']" name="managedName">ActitoSdk.Android.Binding</attr>
+    <attr path="/api/package[@name='com.actito.ktx']" name="managedName">ActitoSdk.Android.Binding.Ktx</attr>
+    <attr path="/api/package[@name='com.actito.models']" name="managedName">ActitoSdk.Android.Binding.Models</attr>
+
+    <remove-node path="/api/package[starts-with(@name, 'com.actito.internal')]" />
+    <remove-node path="/api/package[starts-with(@name, 'com.actito')]/class[contains(@name, 'JsonAdapter')]" />
+    <remove-node path="/api/package[starts-with(@name, 'com.actito')]/class[contains(@name, '.Creator')]" />
+    <remove-node path="/api/package[starts-with(@name, 'com.actito')]/class[contains(@name, '.Companion')]" />
+    <remove-node path="/api/package[starts-with(@name, 'com.actito')]/class/field[contains(@type, '.Companion')]" />
+
+    <remove-node path="/api/package[@name='com.actito']/class[@name='Actito']/method[@name='getOptions']" />
+    <remove-node path="/api/package[@name='com.actito']/interface[@name='InternalActitoApi']"/>
+</metadata>
