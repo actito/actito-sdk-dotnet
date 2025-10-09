@@ -186,7 +186,7 @@ public static class ActitoPush
     /// <strong>Note</strong>: This method is only supported on iOS.
     /// </summary>
     /// <param name="authorizationOptions">The authorization options to be set.</param>
-    public static void SetAuthorizationOptions(IList<string> authorizationOptions) =>
+    public static void SetAuthorizationOptions(IList<ActitoAuthorizationOptions> authorizationOptions) =>
         Platform.SetAuthorizationOptions(authorizationOptions);
 
     /// <summary>
@@ -195,7 +195,7 @@ public static class ActitoPush
     /// <strong>Note</strong>: This method is only supported on iOS.
     /// </summary>
     /// <param name="categoryOptions">The category options to be set.</param>
-    public static void SetCategoryOptions(IList<string> categoryOptions) =>
+    public static void SetCategoryOptions(IList<ActitoCategoryOptions> categoryOptions) =>
         Platform.SetCategoryOptions(categoryOptions);
 
     /// <summary>
@@ -204,7 +204,7 @@ public static class ActitoPush
     /// <strong>Note</strong>: This method is only supported on iOS.
     /// </summary>
     /// <param name="presentationOptions">The presentation options to be set.</param>
-    public static void SetPresentationOptions(IList<string> presentationOptions) =>
+    public static void SetPresentationOptions(IList<ActitoPresentationOptions> presentationOptions) =>
         Platform.SetPresentationOptions(presentationOptions);
 
 #if IOS

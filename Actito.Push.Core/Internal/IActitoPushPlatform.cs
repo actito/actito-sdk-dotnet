@@ -45,11 +45,11 @@ public interface IActitoPushPlatform
 
     Task DisableRemoteNotificationsAsync();
 
-    void SetAuthorizationOptions(IList<string> authorizationOptions);
+    void SetAuthorizationOptions(IList<ActitoAuthorizationOptions> authorizationOptions);
 
-    void SetCategoryOptions(IList<string> categoryOptions);
+    void SetCategoryOptions(IList<ActitoCategoryOptions> categoryOptions);
 
-    void SetPresentationOptions(IList<string> presentationOptions);
+    void SetPresentationOptions(IList<ActitoPresentationOptions> presentationOptions);
 
 #if IOS
     void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken);
