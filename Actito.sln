@@ -12,8 +12,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.UserInbox", "Actito.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Build.Tasks", "Actito.Build.Tasks\Actito.Build.Tasks.csproj", "{10B87C69-F21B-9130-A8CF-8A96BD417034}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Scannables", "Actito.Scannables\Actito.Scannables.csproj", "{43FAAD77-98D6-523E-206C-12D91D809EAE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Push", "Actito.Push\Actito.Push.csproj", "{0F7E80B4-20CD-EBA6-192A-C1A7116F8EF1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Inbox.iOS.Binding", "Actito.Inbox.iOS.Binding\Actito.Inbox.iOS.Binding.csproj", "{74FB48C5-4DAF-C977-36F3-4A91482E4429}"
@@ -25,8 +23,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.UserInbox.Core", "Actito.UserInbox.Core\Actito.UserInbox.Core.csproj", "{2BCC5058-E200-96D9-4028-DF2D884FFE90}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.NotificationServiceExtension.iOS.Binding", "Actito.NotificationServiceExtension.iOS.Binding\Actito.NotificationServiceExtension.iOS.Binding.csproj", "{4F0B6FE9-3EF7-6D75-4C83-9D194EB69AE0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Scannables.iOS.Binding", "Actito.Scannables.iOS.Binding\Actito.Scannables.iOS.Binding.csproj", "{9129413B-58BF-41CC-0394-9C6FF9F21B2C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.UserInbox.Android", "Actito.UserInbox.Android\Actito.UserInbox.Android.csproj", "{DABBC2C9-4124-091D-74EF-9FE7868DBA9F}"
 EndProject
@@ -45,8 +41,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.NotificationServiceExtension", "Sample.NotificationServiceExtension\Sample.NotificationServiceExtension.csproj", "{CFE81D7A-D0C0-AD4B-88C2-70F3AF344040}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Push.UI.iOS", "Actito.Push.UI.iOS\Actito.Push.UI.iOS.csproj", "{B59211EE-2A88-E7AD-2D25-37A80229BFF0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Scannables.Android.Binding", "Actito.Scannables.Android.Binding\Actito.Scannables.Android.Binding.csproj", "{C7619FA9-FFB7-C263-74DB-902B7C3F374B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.InAppMessaging.iOS", "Actito.InAppMessaging.iOS\Actito.InAppMessaging.iOS.csproj", "{17FCFBAD-1462-726B-B0BA-AD9E16EB0B22}"
 EndProject
@@ -100,10 +94,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.UserInbox.iOS", "Act
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Geo.iOS.Binding", "Actito.Geo.iOS.Binding\Actito.Geo.iOS.Binding.csproj", "{F4A2620C-9DDB-A544-3059-DFD282292E2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Scannables.Core", "Actito.Scannables.Core\Actito.Scannables.Core.csproj", "{7DF9B6A0-1A3D-BA0B-08A9-4ABD0D1A3466}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Scannables.iOS", "Actito.Scannables.iOS\Actito.Scannables.iOS.csproj", "{1CB474EB-4D4D-A373-3782-B0646E0CF278}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Push.UI.Core", "Actito.Push.UI.Core\Actito.Push.UI.Core.csproj", "{3B90F75A-0F31-8D42-DFD7-5A2CC7604397}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Assets.Android.Binding", "Actito.Assets.Android.Binding\Actito.Assets.Android.Binding.csproj", "{4B980F4E-8E25-F4F5-4CB0-8E4B6EA8A4B4}"
@@ -121,8 +111,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Geo.Android.Binding", "Actito.Geo.Android.Binding\Actito.Geo.Android.Binding.csproj", "{7B82D31F-BCF5-7DB7-D6E4-BF486696CA17}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Android.Binding", "Actito.Android.Binding\Actito.Android.Binding.csproj", "{B5CD94B0-3892-7AAC-EA01-65D3E8965BA5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Scannables.Android", "Actito.Scannables.Android\Actito.Scannables.Android.csproj", "{D0864BE6-3D0B-044E-DA86-7CC1DDCECE1C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actito.Geo.iOS", "Actito.Geo.iOS\Actito.Geo.iOS.csproj", "{C9983BD7-7D25-6883-F514-0B7932358058}"
 EndProject
@@ -162,10 +150,6 @@ Global
 		{10B87C69-F21B-9130-A8CF-8A96BD417034}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10B87C69-F21B-9130-A8CF-8A96BD417034}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10B87C69-F21B-9130-A8CF-8A96BD417034}.Release|Any CPU.Build.0 = Release|Any CPU
-		{43FAAD77-98D6-523E-206C-12D91D809EAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{43FAAD77-98D6-523E-206C-12D91D809EAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{43FAAD77-98D6-523E-206C-12D91D809EAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{43FAAD77-98D6-523E-206C-12D91D809EAE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0F7E80B4-20CD-EBA6-192A-C1A7116F8EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0F7E80B4-20CD-EBA6-192A-C1A7116F8EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F7E80B4-20CD-EBA6-192A-C1A7116F8EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -190,10 +174,6 @@ Global
 		{4F0B6FE9-3EF7-6D75-4C83-9D194EB69AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F0B6FE9-3EF7-6D75-4C83-9D194EB69AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F0B6FE9-3EF7-6D75-4C83-9D194EB69AE0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9129413B-58BF-41CC-0394-9C6FF9F21B2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9129413B-58BF-41CC-0394-9C6FF9F21B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9129413B-58BF-41CC-0394-9C6FF9F21B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9129413B-58BF-41CC-0394-9C6FF9F21B2C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DABBC2C9-4124-091D-74EF-9FE7868DBA9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DABBC2C9-4124-091D-74EF-9FE7868DBA9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DABBC2C9-4124-091D-74EF-9FE7868DBA9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -230,10 +210,6 @@ Global
 		{B59211EE-2A88-E7AD-2D25-37A80229BFF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B59211EE-2A88-E7AD-2D25-37A80229BFF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B59211EE-2A88-E7AD-2D25-37A80229BFF0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C7619FA9-FFB7-C263-74DB-902B7C3F374B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7619FA9-FFB7-C263-74DB-902B7C3F374B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7619FA9-FFB7-C263-74DB-902B7C3F374B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7619FA9-FFB7-C263-74DB-902B7C3F374B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{17FCFBAD-1462-726B-B0BA-AD9E16EB0B22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{17FCFBAD-1462-726B-B0BA-AD9E16EB0B22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17FCFBAD-1462-726B-B0BA-AD9E16EB0B22}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -338,14 +314,6 @@ Global
 		{F4A2620C-9DDB-A544-3059-DFD282292E2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4A2620C-9DDB-A544-3059-DFD282292E2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4A2620C-9DDB-A544-3059-DFD282292E2D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7DF9B6A0-1A3D-BA0B-08A9-4ABD0D1A3466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7DF9B6A0-1A3D-BA0B-08A9-4ABD0D1A3466}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7DF9B6A0-1A3D-BA0B-08A9-4ABD0D1A3466}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7DF9B6A0-1A3D-BA0B-08A9-4ABD0D1A3466}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1CB474EB-4D4D-A373-3782-B0646E0CF278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1CB474EB-4D4D-A373-3782-B0646E0CF278}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1CB474EB-4D4D-A373-3782-B0646E0CF278}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1CB474EB-4D4D-A373-3782-B0646E0CF278}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B90F75A-0F31-8D42-DFD7-5A2CC7604397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B90F75A-0F31-8D42-DFD7-5A2CC7604397}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B90F75A-0F31-8D42-DFD7-5A2CC7604397}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -382,10 +350,6 @@ Global
 		{B5CD94B0-3892-7AAC-EA01-65D3E8965BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5CD94B0-3892-7AAC-EA01-65D3E8965BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5CD94B0-3892-7AAC-EA01-65D3E8965BA5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0864BE6-3D0B-044E-DA86-7CC1DDCECE1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0864BE6-3D0B-044E-DA86-7CC1DDCECE1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0864BE6-3D0B-044E-DA86-7CC1DDCECE1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0864BE6-3D0B-044E-DA86-7CC1DDCECE1C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C9983BD7-7D25-6883-F514-0B7932358058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C9983BD7-7D25-6883-F514-0B7932358058}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9983BD7-7D25-6883-F514-0B7932358058}.Release|Any CPU.ActiveCfg = Release|Any CPU
