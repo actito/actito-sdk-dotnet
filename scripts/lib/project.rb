@@ -100,16 +100,6 @@ class CSProject
           directory: 'Actito.Push.UI.iOS.Binding'
         ),
         CSProject.new(
-          component: :scannables,
-          platform: :android,
-          directory: 'Actito.Scannables.Android.Binding'
-        ),
-        CSProject.new(
-          component: :scannables,
-          platform: :ios,
-          directory: 'Actito.Scannables.iOS.Binding'
-        ),
-        CSProject.new(
           component: :user_inbox,
           platform: :android,
           directory: 'Actito.UserInbox.Android.Binding'
