@@ -76,17 +76,17 @@ public class ActitoPushPlatformAndroid : IActitoPushPlatform
         await callback.Task;
     }
 
-    public void SetAuthorizationOptions(IList<string> authorizationOptions)
+    public void SetAuthorizationOptions(IList<ActitoAuthorizationOptions> authorizationOptions)
     {
         // no-op
     }
 
-    public void SetCategoryOptions(IList<string> categoryOptions)
+    public void SetCategoryOptions(IList<ActitoCategoryOptions> categoryOptions)
     {
         // no-op
     }
 
-    public void SetPresentationOptions(IList<string> presentationOptions)
+    public void SetPresentationOptions(IList<ActitoPresentationOptions> presentationOptions)
     {
         // no-op
     }

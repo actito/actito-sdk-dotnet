@@ -76,7 +76,7 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
         return completion.Task;
     }
 
-    public void SetAuthorizationOptions(IList<string> authorizationOptions)
+    public void SetAuthorizationOptions(IList<ActitoAuthorizationOptions> authorizationOptions)
     {
         if (authorizationOptions.Count == 0)
         {
@@ -90,28 +90,28 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
         {
             switch (option)
             {
-                case "alert":
+                case ActitoAuthorizationOptions.Alert:
                     options |= UNAuthorizationOptions.Alert;
                     break;
-                case "badge":
+                case ActitoAuthorizationOptions.Badge:
                     options |= UNAuthorizationOptions.Badge;
                     break;
-                case "sound":
+                case ActitoAuthorizationOptions.Sound:
                     options |= UNAuthorizationOptions.Sound;
                     break;
-                case "carPlay":
+                case ActitoAuthorizationOptions.CarPlay:
                     options |= UNAuthorizationOptions.CarPlay;
                     break;
-                case "providesAppNotificationSettings":
+                case ActitoAuthorizationOptions.ProvidesAppNotificationSettings:
                     options |= UNAuthorizationOptions.ProvidesAppNotificationSettings;
                     break;
-                case "provisional":
+                case ActitoAuthorizationOptions.Provisional:
                     options |= UNAuthorizationOptions.Provisional;
                     break;
-                case "criticalAlert":
+                case ActitoAuthorizationOptions.CriticalAlert:
                     options |= UNAuthorizationOptions.CriticalAlert;
                     break;
-                case "announcement":
+                case ActitoAuthorizationOptions.Announcement:
                     options |= UNAuthorizationOptions.Announcement;
                     break;
             }
@@ -120,7 +120,7 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
         _native.AuthorizationOptions = options;
     }
 
-    public void SetCategoryOptions(IList<string> categoryOptions)
+    public void SetCategoryOptions(IList<ActitoCategoryOptions> categoryOptions)
     {
         if (categoryOptions.Count == 0)
         {
@@ -134,19 +134,19 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
         {
             switch (option)
             {
-                case "customDismissAction":
+                case ActitoCategoryOptions.CustomDismissAction:
                     options |= UNNotificationCategoryOptions.CustomDismissAction;
                     break;
-                case "allowInCarPlay":
+                case ActitoCategoryOptions.AllowInCarPlay:
                     options |= UNNotificationCategoryOptions.AllowInCarPlay;
                     break;
-                case "hiddenPreviewsShowTitle":
+                case ActitoCategoryOptions.HiddenPreviewsShowTitle:
                     options |= UNNotificationCategoryOptions.HiddenPreviewsShowTitle;
                     break;
-                case "hiddenPreviewsShowSubtitle":
+                case ActitoCategoryOptions.HiddenPreviewsShowSubtitle:
                     options |= UNNotificationCategoryOptions.HiddenPreviewsShowSubtitle;
                     break;
-                case "allowAnnouncement":
+                case ActitoCategoryOptions.AllowAnnouncement:
                     options |= UNNotificationCategoryOptions.AllowAnnouncement;
                     break;
             }
@@ -155,7 +155,7 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
         _native.CategoryOptions = options;
     }
 
-    public void SetPresentationOptions(IList<string> presentationOptions)
+    public void SetPresentationOptions(IList<ActitoPresentationOptions> presentationOptions)
     {
         if (presentationOptions.Count == 0)
         {
@@ -168,20 +168,20 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
         foreach (var option in presentationOptions)
         {
 #if IOS14_0_OR_GREATER
-            if (option is "banner" or "alert")
+            if (option is ActitoPresentationOptions.Banner or ActitoPresentationOptions.Alert)
                 options |= UNNotificationPresentationOptions.Banner;
 
-            if (option is "list")
+            if (option is ActitoPresentationOptions.List)
                 options |= UNNotificationPresentationOptions.List;
 #else
             if (option is "alert") 
                 options |= UNNotificationPresentationOptions.Alert;
 #endif
 
-            if (option is "badge")
+            if (option is ActitoPresentationOptions.Badge)
                 options |= UNNotificationPresentationOptions.Badge;
 
-            if (option is "sound")
+            if (option is ActitoPresentationOptions.Sound)
                 options |= UNNotificationPresentationOptions.Sound;
         }
 
