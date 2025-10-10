@@ -12,7 +12,6 @@ public class Icons
     public static string Bluetooth = "\ue1aa";    
     public static string InAppMessage = "\ue0b7";
     public static string TimerOff = "\ue426";
-    public static string Scannables = "\uf206";
     public static string Folder = "\ue2c7";
     public static string Event = "\ue878";
     

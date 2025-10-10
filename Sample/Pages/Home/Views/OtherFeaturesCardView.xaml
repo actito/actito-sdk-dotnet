@@ -10,18 +10,6 @@
         <VerticalStackLayout>
             <ContentView Padding="8, 8">
                 <ContentView.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="NavigateToScannables" />
-                </ContentView.GestureRecognizers>
-
-                <views:NavigationRowView
-                    IconText="{x:Static models:Icons.Scannables}"
-                    LabelText="Scannables" />
-            </ContentView>
-
-            <views:HorizontalDivider Padding="36, 0,0,0" />
-
-            <ContentView Padding="8, 8">
-                <ContentView.GestureRecognizers>
                     <TapGestureRecognizer Tapped="NavigateToAssets" />
                 </ContentView.GestureRecognizers>
 

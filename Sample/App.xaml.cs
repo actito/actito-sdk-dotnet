@@ -6,7 +6,6 @@ using ActitoSdk.Inbox;
 using ActitoSdk.Push;
 using ActitoSdk.Push.Core.Events;
 using ActitoSdk.Push.UI;
-using ActitoSdk.Scannables;
 
 #if IOS
 using UIKit;
@@ -237,20 +236,6 @@ public partial class App : Application
 		ActitoInbox.BadgeUpdated += async (sender, args) =>
 		{
 			LogEvent("ACTITO.INBOX BADGE UPDATED EVENT", args.Badge);
-		};
-		
-		//
-		// Actito Scannables events
-		//
-		
-		ActitoScannables.ScannableDetected += async (sender, args) =>
-		{
-			LogEvent("ACTITO.SCANNABLES SCANNABLE DETECTED EVENT", args.Scannable);
-		};
-		
-		ActitoScannables.ScannableSessionFailed += async (sender, args) =>
-		{
-			LogEvent("ACTITO.SCANNABLES SCANNABLE SESSION FAILED EVENT", args.Error);
 		};
 		
 		//
