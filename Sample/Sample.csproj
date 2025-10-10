@@ -67,7 +67,6 @@
 		<ProjectReference Include="..\Actito.Push.UI\Actito.Push.UI.csproj" />
 		<ProjectReference Include="..\Actito.Geo\Actito.Geo.csproj" />
 		<ProjectReference Include="..\Actito.InAppMessaging\Actito.InAppMessaging.csproj" />
-		<ProjectReference Include="..\Actito.Scannables\Actito.Scannables.csproj" />
 		<ProjectReference Include="..\Actito.Assets\Actito.Assets.csproj" />
 	</ItemGroup>
 

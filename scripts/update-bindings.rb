@@ -6,7 +6,7 @@ require_relative 'lib/terminal'
 
 options = OpenStruct.new
 OptionParser.new do |opt|
-  opt.on('-c', '--component COMPONENT', String, [:assets, :core, :geo, :in_app_messaging, :inbox, :loyalty, :notification_service_extension, :push, :push_ui, :scannables, :user_inbox], 'The component to update (assets, core, geo, in_app_messaging inbox, loyalty, push, push_ui, scannables, user_inbox).') { |o| options.component = o }
+  opt.on('-c', '--component COMPONENT', String, [:assets, :core, :geo, :in_app_messaging, :inbox, :loyalty, :notification_service_extension, :push, :push_ui, :user_inbox], 'The component to update (assets, core, geo, in_app_messaging inbox, loyalty, push, push_ui, user_inbox).') { |o| options.component = o }
   opt.on('-p', '--platform PLATFORM', String, [:android, :ios], 'The platform to update (android, ios).') { |o| options.platform = o }
   opt.on('--clean', 'Clean project before building.') { |o| options.clean = o }
 end.parse!

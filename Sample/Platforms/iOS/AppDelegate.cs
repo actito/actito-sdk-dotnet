@@ -2,6 +2,7 @@
 using Foundation;
 using ActitoSdk;
 using ActitoSdk.Push;
+using ActitoSdk.Push.Core.Models;
 using UIKit;
 
 namespace Sample;
@@ -20,7 +21,13 @@ public class AppDelegate : MauiUIApplicationDelegate, IUIApplicationDelegate
         {
             try
             {
-                ActitoPush.SetPresentationOptions(new List<string> { "banner", "badge", "sound" });
+                ActitoPush.SetPresentationOptions(new List<ActitoPresentationOptions>
+                {
+                    ActitoPresentationOptions.Banner,
+                    ActitoPresentationOptions.Banner,
+                    ActitoPresentationOptions.Sound
+                });
+
                 await Actito.LaunchAsync();
             }
             catch (Exception e)
