@@ -12,14 +12,14 @@
     <ItemGroup>
         <AndroidMavenLibrary
                 Include="com.actito:actito"
-                Version="5.0.0-canary.2"
+                Version="5.0.0-canary.3"
                 VerifyDependencies="false"
                 Bind="true"
                 Repository="https://maven.notifica.re/prereleases"/>
 
         <AndroidMavenLibrary
                 Include="com.actito:actito-utilities"
-                Version="5.0.0-canary.2"
+                Version="5.0.0-canary.3"
                 VerifyDependencies="false"
                 Bind="false"
                 Repository="https://maven.notifica.re/prereleases"/>

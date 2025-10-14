@@ -11,7 +11,7 @@
     <ItemGroup>
         <AndroidMavenLibrary
                 Include="com.actito:actito-push-ui"
-                Version="5.0.0-canary.2"
+                Version="5.0.0-canary.3"
                 VerifyDependencies="false"
                 Bind="true"
                 Repository="https://maven.notifica.re/prereleases"/>

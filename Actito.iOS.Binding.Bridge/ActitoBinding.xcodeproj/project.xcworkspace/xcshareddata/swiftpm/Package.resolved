@@ -1,13 +1,13 @@
 {
-  "originHash" : "80fa935a9e040d4867f3b685e17ef80e6c65b8aeeace80d269a44d0ecf3d4f22",
+  "originHash" : "83a3aeebce85c801c1b2b32b03d83b575a63c973ea2401bcc3f2af5141f1f9c3",
   "pins" : [
     {
       "identity" : "actito-sdk-ios-in-house-releases",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/actito/actito-sdk-ios-in-house-releases",
+      "location" : "git@github.com:actito/actito-sdk-ios-in-house-releases.git",
       "state" : {
-        "revision" : "7802061c4dbb87f056a76a8a8ba2684510bc699a",
-        "version" : "5.0.0-canary.1"
+        "revision" : "ee54771c6313b18d5008466525b108b7bd61342a",
+        "version" : "5.0.0-canary.4"
       }
     }
   ],
