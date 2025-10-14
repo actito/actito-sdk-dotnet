@@ -3,7 +3,7 @@ using ActitoSdk.Geo.Android.Internal;
 using ActitoSdk.Geo.Core.Events;
 using ActitoSdk.Geo.Core.Internal;
 using ActitoSdk.Geo.Core.Models;
-using NativeActito = ActitoSdk.Geo.Android.Binding.ActitoGeoCompat;
+using NativeActito = ActitoSdk.Geo.Android.Binding.ActitoGeo;
 
 namespace ActitoSdk.Geo.Android;
 

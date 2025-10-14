@@ -2,13 +2,13 @@ using ActitoSdk.Android.Internal;
 using ActitoSdk.Core.Models;
 using ActitoSdk.Push.UI.Core.Events;
 using ActitoSdk.Push.UI.Core.Internal;
-using NativeActito = ActitoSdk.Push.UI.Android.Binding.ActitoPushUICompat;
+using NativeActito = ActitoSdk.Push.UI.Android.Binding.ActitoPushUI;
 
 namespace ActitoSdk.Push.UI.Android;
 
 public class ActitoPushUIPlatformAndroid : IActitoPushUIPlatform
 {
-    private Binding.IActitoPushUI.INotificationLifecycleListener? _notificationLifecycleListener;
+    private NativeActito.INotificationLifecycleListener? _notificationLifecycleListener;
 
     public void Initialize()
     {
@@ -62,7 +62,7 @@ public class ActitoPushUIPlatformAndroid : IActitoPushUIPlatform
     }
 
     private class NotificationLifecycleListener : Java.Lang.Object,
-        Binding.IActitoPushUI.INotificationLifecycleListener
+        NativeActito.INotificationLifecycleListener
     {
         private readonly ActitoPushUIPlatformAndroid _platform;
 

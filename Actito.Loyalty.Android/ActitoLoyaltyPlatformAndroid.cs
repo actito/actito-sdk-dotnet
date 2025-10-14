@@ -2,7 +2,7 @@ using ActitoSdk.Android.Internal;
 using ActitoSdk.Loyalty.Android.Internal;
 using ActitoSdk.Loyalty.Core.Internal;
 using ActitoSdk.Loyalty.Core.Models;
-using NativeActito = ActitoSdk.Loyalty.Android.Binding.ActitoLoyaltyCompat;
+using NativeActito = ActitoSdk.Loyalty.Android.Binding.ActitoLoyalty;
 
 namespace ActitoSdk.Loyalty.Android;
 

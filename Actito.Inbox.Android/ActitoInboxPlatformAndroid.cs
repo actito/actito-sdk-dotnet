@@ -5,7 +5,7 @@ using ActitoSdk.Inbox.Core.Models;
 using AndroidX.Lifecycle;
 using ActitoSdk.Core.Models;
 using ActitoSdk.Inbox.Android.Internal;
-using NativeActito = ActitoSdk.Inbox.Android.Binding.ActitoInboxCompat;
+using NativeActito = ActitoSdk.Inbox.Android.Binding.ActitoInbox;
 
 namespace ActitoSdk.Inbox.Android;
 
@@ -32,7 +32,13 @@ public class ActitoInboxPlatformAndroid : IActitoInboxPlatform
 
     public int Badge => NativeActito.Badge;
 
-    public void Refresh() => NativeActito.Refresh();
+    public async Task RefreshAsync()
+    {
+        var callback = new ActitoAwaitableCallback();
+        NativeActito.Refresh(callback);
+
+        await callback.Task;
+    }
 
     public async Task<ActitoNotification> OpenAsync(ActitoInboxItem item)
     {
