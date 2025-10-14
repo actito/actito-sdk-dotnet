@@ -3,6 +3,7 @@ import Foundation
 import ActitoKit
 import ActitoGeoKit
 
+@MainActor
 @objc(ActitoGeoNativeBinding)
 public class ActitoGeoNativeBinding : NSObject {
 
@@ -52,67 +53,67 @@ public class ActitoGeoNativeBinding : NSObject {
 }
 
 extension ActitoGeoNativeBinding : ActitoGeoDelegate {
-    public func actito(_ actitoGeo: any ActitoGeo, didUpdateLocations locations: [ActitoGeoKit.ActitoLocation]) {
+    public func actito(_ actitoGeo: ActitoGeo, didUpdateLocations locations: [ActitoGeoKit.ActitoLocation]) {
         delegate?.actito(self, didUpdateLocations: locations.map { ActitoLocation(from: $0) })
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, didFailWith error: any Error) {
+    public func actito(_ actitoGeo: ActitoGeo, didFailWith error: any Error) {
         delegate?.actito(self, didFailWith: error)
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, didStartMonitoringFor region: ActitoGeoKit.ActitoRegion) {
+    public func actito(_ actitoGeo: ActitoGeo, didStartMonitoringFor region: ActitoGeoKit.ActitoRegion) {
         delegate?.actito(self, didStartMonitoringForRegion: ActitoRegion(from: region))
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, didStartMonitoringFor beacon: ActitoGeoKit.ActitoBeacon) {
+    public func actito(_ actitoGeo: ActitoGeo, didStartMonitoringFor beacon: ActitoGeoKit.ActitoBeacon) {
         delegate?.actito(self, didStartMonitoringForBeacon: ActitoBeacon(from: beacon))
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, monitoringDidFailFor region: ActitoGeoKit.ActitoRegion, with error: any Error) {
+    public func actito(_ actitoGeo: ActitoGeo, monitoringDidFailFor region: ActitoGeoKit.ActitoRegion, with error: any Error) {
         delegate?.actito(self, monitoringDidFailForRegion: ActitoRegion(from: region), with: error)
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, monitoringDidFailFor beacon: ActitoGeoKit.ActitoBeacon, with error: any Error) {
+    public func actito(_ actitoGeo: ActitoGeo, monitoringDidFailFor beacon: ActitoGeoKit.ActitoBeacon, with error: any Error) {
         delegate?.actito(self, monitoringDidFailForBeacon: ActitoBeacon(from: beacon), with: error)
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, didDetermineState state: CLRegionState, for region: ActitoGeoKit.ActitoRegion) {
+    public func actito(_ actitoGeo: ActitoGeo, didDetermineState state: CLRegionState, for region: ActitoGeoKit.ActitoRegion) {
         delegate?.actito(self, didDetermineState: state, forRegion: ActitoRegion(from: region))
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, didDetermineState state: CLRegionState, for beacon: ActitoGeoKit.ActitoBeacon) {
+    public func actito(_ actitoGeo: ActitoGeo, didDetermineState state: CLRegionState, for beacon: ActitoGeoKit.ActitoBeacon) {
         delegate?.actito(self, didDetermineState: state, forBeacon: ActitoBeacon(from: beacon))
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, didEnter region: ActitoGeoKit.ActitoRegion) {
+    public func actito(_ actitoGeo: ActitoGeo, didEnter region: ActitoGeoKit.ActitoRegion) {
         delegate?.actito(self, didEnterRegion: ActitoRegion(from: region))
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, didEnter beacon: ActitoGeoKit.ActitoBeacon) {
+    public func actito(_ actitoGeo: ActitoGeo, didEnter beacon: ActitoGeoKit.ActitoBeacon) {
         delegate?.actito(self, didEnterBeacon: ActitoBeacon(from: beacon))
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, didExit region: ActitoGeoKit.ActitoRegion) {
+    public func actito(_ actitoGeo: ActitoGeo, didExit region: ActitoGeoKit.ActitoRegion) {
         delegate?.actito(self, didExitRegion: ActitoRegion(from: region))
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, didExit beacon: ActitoGeoKit.ActitoBeacon) {
+    public func actito(_ actitoGeo: ActitoGeo, didExit beacon: ActitoGeoKit.ActitoBeacon) {
         delegate?.actito(self, didExitBeacon: ActitoBeacon(from: beacon))
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, didVisit visit: ActitoGeoKit.ActitoVisit) {
+    public func actito(_ actitoGeo: ActitoGeo, didVisit visit: ActitoGeoKit.ActitoVisit) {
         delegate?.actito(self, didVisit: ActitoVisit(from: visit))
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, didUpdateHeading heading: ActitoGeoKit.ActitoHeading) {
+    public func actito(_ actitoGeo: ActitoGeo, didUpdateHeading heading: ActitoGeoKit.ActitoHeading) {
         delegate?.actito(self, didUpdateHeading: ActitoHeading(from: heading))
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, didRange beacons: [ActitoGeoKit.ActitoBeacon], in region: ActitoGeoKit.ActitoRegion) {
+    public func actito(_ actitoGeo: ActitoGeo, didRange beacons: [ActitoGeoKit.ActitoBeacon], in region: ActitoGeoKit.ActitoRegion) {
         delegate?.actito(self, didRange: beacons.map { ActitoBeacon(from: $0) }, in: ActitoRegion(from: region))
     }
 
-    public func actito(_ actitoGeo: any ActitoGeo, didFailRangingFor region: ActitoGeoKit.ActitoRegion, with error: any Error) {
+    public func actito(_ actitoGeo: ActitoGeo, didFailRangingFor region: ActitoGeoKit.ActitoRegion, with error: any Error) {
         delegate?.actito(self, didFailRangingFor: ActitoRegion(from: region), with: error)
     }
 }

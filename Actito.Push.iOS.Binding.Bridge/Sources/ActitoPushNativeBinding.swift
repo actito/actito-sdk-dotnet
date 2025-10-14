@@ -9,6 +9,7 @@ public typealias SuccessBlock<T> = (T) -> Void
 public typealias VoidBlock = () -> Void
 public typealias ErrorBlock = (Error) -> Void
 
+@MainActor
 @objc(ActitoPushNativeBinding)
 public class ActitoPushNativeBinding : NSObject {
 
@@ -127,43 +128,43 @@ public class ActitoPushNativeBinding : NSObject {
 }
 
 extension ActitoPushNativeBinding : ActitoPushDelegate {
-    public func actito(_ actitoPush: any ActitoPush, didChangeSubscription subscription: ActitoPushKit.ActitoPushSubscription?) {
+    public func actito(_ actitoPush: ActitoPush, didChangeSubscription subscription: ActitoPushKit.ActitoPushSubscription?) {
         delegate?.actito(self, didChangeSubscription: subscription.map { ActitoPushSubscription.init(from: $0) })
     }
 
-    public func actito(_ actitoPush: any ActitoPush, didChangeNotificationSettings allowedUI: Bool) {
+    public func actito(_ actitoPush: ActitoPush, didChangeNotificationSettings allowedUI: Bool) {
         delegate?.actito(self, didChangeNotificationSettings: allowedUI)
     }
 
-    public func actito(_ actitoPush: any ActitoPush, didReceiveNotification notification: ActitoKit.ActitoNotification, deliveryMechanism: ActitoPushKit.ActitoNotificationDeliveryMechanism) {
+    public func actito(_ actitoPush: ActitoPush, didReceiveNotification notification: ActitoKit.ActitoNotification, deliveryMechanism: ActitoPushKit.ActitoNotificationDeliveryMechanism) {
         delegate?.actito(self, didReceiveNotification: ActitoBinding.ActitoNotification(from: notification), deliveryMechanism: ActitoNotificationDeliveryMechanism(from: deliveryMechanism))
     }
 
-    public func actito(_ actitoPush: any ActitoPush, didReceiveSystemNotification notification: ActitoPushKit.ActitoSystemNotification) {
+    public func actito(_ actitoPush: ActitoPush, didReceiveSystemNotification notification: ActitoPushKit.ActitoSystemNotification) {
         delegate?.actito(self, didReceiveSystemNotification: ActitoSystemNotification(from: notification))
     }
 
-    public func actito(_ actitoPush: any ActitoPush, didReceiveUnknownNotification userInfo: [AnyHashable : Any]) {
+    public func actito(_ actitoPush: ActitoPush, didReceiveUnknownNotification userInfo: [AnyHashable : Any]) {
         delegate?.actito(self, didReceiveUnknownNotification: userInfo)
     }
 
-    public func actito(_ actitoPush: any ActitoPush, shouldOpenSettings notification: ActitoKit.ActitoNotification?) {
+    public func actito(_ actitoPush: ActitoPush, shouldOpenSettings notification: ActitoKit.ActitoNotification?) {
         delegate?.actito(self, shouldOpenSettings: notification.map { ActitoNotification(from: $0) })
     }
 
-    public func actito(_ actitoPush: any ActitoPush, didOpenNotification notification: ActitoKit.ActitoNotification) {
+    public func actito(_ actitoPush: ActitoPush, didOpenNotification notification: ActitoKit.ActitoNotification) {
         delegate?.actito(self, didOpenNotification: ActitoBinding.ActitoNotification(from: notification))
     }
 
-    public func actito(_ actitoPush: any ActitoPush, didOpenUnknownNotification userInfo: [AnyHashable : Any]) {
+    public func actito(_ actitoPush: ActitoPush, didOpenUnknownNotification userInfo: [AnyHashable : Any]) {
         delegate?.actito(self, didOpenUnknownNotification: userInfo)
     }
 
-    public func actito(_ actitoPush: any ActitoPush, didOpenAction action: ActitoKit.ActitoNotification.Action, for notification: ActitoKit.ActitoNotification) {
+    public func actito(_ actitoPush: ActitoPush, didOpenAction action: ActitoKit.ActitoNotification.Action, for notification: ActitoKit.ActitoNotification) {
         delegate?.actito(self, didOpenAction: ActitoBinding.ActitoNotificationAction(from: action), for: ActitoBinding.ActitoNotification(from: notification))
     }
 
-    public func actito(_ actitoPush: any ActitoPush, didOpenUnknownAction action: String, for notification: [AnyHashable : Any], responseText: String?) {
+    public func actito(_ actitoPush: ActitoPush, didOpenUnknownAction action: String, for notification: [AnyHashable : Any], responseText: String?) {
         delegate?.actito(self, didOpenUnknownAction: action, for: notification, responseText: responseText)
     }
 }

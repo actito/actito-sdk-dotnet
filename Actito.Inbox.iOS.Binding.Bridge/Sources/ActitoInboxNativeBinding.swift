@@ -8,6 +8,7 @@ public typealias SuccessBlock<T> = (T) -> Void
 public typealias VoidBlock = () -> Void
 public typealias ErrorBlock = (Error) -> Void
 
+@MainActor
 @objc(ActitoInboxNativeBinding)
 public class ActitoInboxNativeBinding : NSObject {
 
@@ -31,8 +32,15 @@ public class ActitoInboxNativeBinding : NSObject {
     public weak var delegate: ActitoInboxNativeBindingDelegate?
 
     @objc
-    public func refresh() {
-        Actito.shared.inbox().refresh()
+    public func refresh(_ onSuccess: @escaping VoidBlock, _ onFailure: @escaping ErrorBlock) {
+        Actito.shared.inbox().refresh { result in
+            switch result {
+            case .success:
+                onSuccess()
+            case let .failure(error):
+                onFailure(error)
+            }
+        }
     }
 
     @objc
@@ -109,11 +117,11 @@ public class ActitoInboxNativeBinding : NSObject {
 }
 
 extension ActitoInboxNativeBinding : ActitoInboxDelegate {
-    public func actito(_ actitoInbox: any ActitoInboxKit.ActitoInbox, didUpdateInbox items: [ActitoInboxKit.ActitoInboxItem]) {
+    public func actito(_ actitoInbox: ActitoInboxKit.ActitoInbox, didUpdateInbox items: [ActitoInboxKit.ActitoInboxItem]) {
         delegate?.actito(self, didUpdateInbox: items.map { ActitoInboxItem(from: $0) })
     }
 
-    public func actito(_ actitoInbox: any ActitoInboxKit.ActitoInbox, didUpdateBadge badge: Int) {
+    public func actito(_ actitoInbox: ActitoInboxKit.ActitoInbox, didUpdateBadge badge: Int) {
         delegate?.actito(self, didUpdateBadge: badge)
     }
 }

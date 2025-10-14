@@ -5,6 +5,7 @@ import ActitoAssetsKit
 public typealias SuccessBlock<T> = (T) -> Void
 public typealias ErrorBlock = (Error) -> Void
 
+@MainActor
 @objc(ActitoAssetsNativeBinding)
 public class ActitoAssetsNativeBinding : NSObject {
 
