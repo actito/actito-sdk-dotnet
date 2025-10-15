@@ -70,16 +70,16 @@
 
     <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
         <GoogleServicesJson Include="Platforms\Android\google-services.json" />
-        <ActitoServicesJson Include="Platforms\Android\notificare-services.json" />
+        <ActitoServicesJson Include="Platforms\Android\actito-services.json" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.Contains('ios'))">
-        <BundleResource Include="Platforms\iOS\NotificareServices.plist">
-            <Link>NotificareServices.plist</Link>
+        <BundleResource Include="Platforms\iOS\ActitoServices.plist">
+            <Link>ActitoServices.plist</Link>
         </BundleResource>
 
-        <BundleResource Include="Platforms\iOS\NotificareOptions.plist">
-            <Link>NotificareOptions.plist</Link>
+        <BundleResource Include="Platforms\iOS\ActitoOptions.plist">
+            <Link>ActitoOptions.plist</Link>
         </BundleResource>
     </ItemGroup>
 
