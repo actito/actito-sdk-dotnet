@@ -11,11 +11,11 @@
     </Target>
 
     <PropertyGroup>
-        <ProcessActitoServicesJsonResDirName Condition=" '$(ProcessActitoServicesJsonResDirName)' == '' ">notificare-services-json</ProcessActitoServicesJsonResDirName>
+        <ProcessActitoServicesJsonResDirName Condition=" '$(ProcessActitoServicesJsonResDirName)' == '' ">actito-services-json</ProcessActitoServicesJsonResDirName>
 
         <ProcessActitoServicesJsonResDirPath>$(IntermediateOutputPath)$(ProcessActitoServicesJsonResDirName)\</ProcessActitoServicesJsonResDirPath>
-        <ProcessActitoServicesJsonResStringsPath>$(ProcessActitoServicesJsonResDirPath)values\notificare_services_json.xml</ProcessActitoServicesJsonResStringsPath>
-        <ProcessActitoServicesJsonStampPath>$(IntermediateOutputPath)notificare-services-json.stamp</ProcessActitoServicesJsonStampPath>
+        <ProcessActitoServicesJsonResStringsPath>$(ProcessActitoServicesJsonResDirPath)values\actito_services_json.xml</ProcessActitoServicesJsonResStringsPath>
+        <ProcessActitoServicesJsonStampPath>$(IntermediateOutputPath)actito-services-json.stamp</ProcessActitoServicesJsonStampPath>
     </PropertyGroup>
 
     <PropertyGroup>
