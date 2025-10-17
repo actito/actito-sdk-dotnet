@@ -28,28 +28,33 @@
     <ItemGroup>
         <PackageReference Include="Actito.Build.Tasks" Version="1.0.0"/>
 
-        <PackageReference Include="Xamarin.Kotlin.Parcelize.Runtime" Version="1.9.23.3" />
-        <PackageReference Include="Xamarin.KotlinX.Coroutines.Android" Version="1.9.0.2" />
-        <PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.10.0" />
-        <PackageReference Include="Xamarin.AndroidX.Work.Work.Runtime.Ktx" Version="2.10.0.3" />
+        <PackageReference Include="Xamarin.Kotlin.Parcelize.Runtime" Version="2.2.20" />
+        <PackageReference Include="Xamarin.KotlinX.Coroutines.Android" Version="1.10.2.1" />
+        <PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.11.0" />
+        <PackageReference Include="Xamarin.AndroidX.Work.Work.Runtime.Ktx" Version="2.10.4" />
         <PackageReference Include="Xamarin.Android.Binding.InstallReferrer" Version="2.2.0" />
-        <PackageReference Include="Xamarin.AndroidX.Room.Room.Ktx" Version="2.6.1.9" />
-        <PackageReference Include="Square.OkHttp3" Version="4.12.0.5" />
-        <PackageReference Include="Square.OkHttp3.LoggingInterceptor" Version="4.12.0.5" />
+        <PackageReference Include="Xamarin.AndroidX.Room.Room.Ktx" Version="2.8.0" />
+        <PackageReference Include="Square.OkHttp3" Version="5.1.0.2" />
+        <!-- 
+        Use an AndroidMavenLibrary instead of a PackageReference to Square.OkHttp3.LoggingInterceptor
+        because that package targets Square.OkHttp3.JVM and we need Square.OkHttp3.Android instead, which is
+        provided by Square.OkHttp3. 
+        -->
+        <AndroidMavenLibrary Include="com.squareup.okhttp3:logging-interceptor" Version="5.1.0" VerifyDependencies="false" Bind="false" />
         <PackageReference Include="Square.Moshi" Version="1.13.0" />
         <PackageReference Include="Square.Moshi.Adapters" Version="1.13.0" />
         <PackageReference Include="Square.Moshi.Kotlin" Version="1.13.0" />
-        <PackageReference Include="Xamarin.Android.Glide" Version="4.16.0.6" />
+        <PackageReference Include="Xamarin.Android.Glide" Version="5.0.5" />
 
-        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData.Ktx" Version="2.8.7.2" />
-        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.8.7.2" />
-        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime.Ktx" Version="2.8.7.2" />
-        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Service" Version="2.8.7.2" />
-        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel" Version="2.8.7.2" />
-        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel.Ktx" Version="2.8.7.2" />
-        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModelSavedState" Version="2.8.7.2" />
-        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Process" Version="2.8.7.2" />
-        <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.4.5.2" />
-        <PackageReference Include="Xamarin.AndroidX.Collection.Ktx" Version="1.4.5.2" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData.Ktx" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime.Ktx" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Service" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel.Ktx" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModelSavedState" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Process" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.5.0.3" />
+        <PackageReference Include="Xamarin.AndroidX.Collection.Ktx" Version="1.5.0.3" />
     </ItemGroup>
 </Project>

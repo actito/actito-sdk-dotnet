@@ -19,7 +19,7 @@
 
         <AndroidMavenLibrary
                 Include="org.altbeacon:android-beacon-library"
-                Version="2.20.3"
+                Version="2.21.1"
                 VerifyDependencies="false"
                 Bind="false"/>
     </ItemGroup>
