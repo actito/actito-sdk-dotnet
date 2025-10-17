@@ -17,17 +17,17 @@ public class AppDelegate : MauiUIApplicationDelegate, IUIApplicationDelegate
         var logger = new CoreFoundation.OSLog(subsystem: "com.foo.maui", category: "category");
         logger.Log(OSLogLevel.Error, "FinishedLaunching");
 
+        ActitoPush.SetPresentationOptions(new List<ActitoPresentationOptions>
+        {
+            ActitoPresentationOptions.Alert,
+            ActitoPresentationOptions.Banner,
+            ActitoPresentationOptions.Sound
+        });
+
         Task.Run(async () =>
         {
             try
             {
-                ActitoPush.SetPresentationOptions(new List<ActitoPresentationOptions>
-                {
-                    ActitoPresentationOptions.Banner,
-                    ActitoPresentationOptions.Banner,
-                    ActitoPresentationOptions.Sound
-                });
-
                 await Actito.LaunchAsync();
             }
             catch (Exception e)
