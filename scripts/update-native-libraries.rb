@@ -36,8 +36,4 @@ unless schemes.empty?
   end
 end
 
-if options.platform.nil? || options.platform == :ios
-
-end
-
 puts "▸ Done. 🚀".green
