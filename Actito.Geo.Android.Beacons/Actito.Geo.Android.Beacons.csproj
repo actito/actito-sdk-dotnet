@@ -7,15 +7,18 @@
           To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
         -->
         <IsTrimmable>true</IsTrimmable>
+
+        <NativeLibraryVersion>5.0.0-beta.1</NativeLibraryVersion>
+        <NativeLibraryMavenRepository>Central</NativeLibraryMavenRepository>
     </PropertyGroup>
 
     <ItemGroup>
         <AndroidMavenLibrary
                 Include="com.actito:actito-geo-beacons"
-                Version="5.0.0-canary.3"
+                Version="$(NativeLibraryVersion)"
                 VerifyDependencies="false"
                 Bind="false"
-                Repository="https://maven.notifica.re/prereleases"/>
+                Repository="$(NativeLibraryMavenRepository)"/>
 
         <AndroidMavenLibrary
                 Include="org.altbeacon:android-beacon-library"
