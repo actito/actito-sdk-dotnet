@@ -188,12 +188,19 @@ class CSProject
     file = File.join(bridge_project_directory, "#{binding_scheme}.xcodeproj", 'project.pbxproj')
     contents = File.read(file)
 
+    repository_name = "actito-sdk-ios"
     repository_url = "https://github.com/actito/actito-sdk-ios"
     if version.include? "canary"
+      repository_name = "actito-sdk-ios-in-house-releases"
       repository_url = "git@github.com:actito/actito-sdk-ios-in-house-releases.git"
     end
 
-    contents = contents.gsub(/(Begin XCRemoteSwiftPackageReference.*RemoteSwiftPackageReference "actito-sdk-ios".*repositoryURL = ")[^;]+(";.*requirement = {.*kind = exactVersion;.*version = ")[^;]+(";.*\};.*End XCRemoteSwiftPackageReference)/m) do
+    contents = contents.gsub(
+      /XCRemoteSwiftPackageReference "actito-sdk-ios(-in-house-releases)?"/,
+      "XCRemoteSwiftPackageReference \"#{repository_name}\""
+    )
+
+    contents = contents.gsub(/(Begin XCRemoteSwiftPackageReference.*RemoteSwiftPackageReference "#{repository_name}".*repositoryURL = ")[^;]+(";.*requirement = {.*kind = exactVersion;.*version = ")[^;]+(";.*\};.*End XCRemoteSwiftPackageReference)/m) do
       "#{$1}#{repository_url}#{$2}#{version}#{$3}"
     end
 
