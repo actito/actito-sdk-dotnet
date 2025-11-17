@@ -1,4 +1,4 @@
-[<img src="https://raw.githubusercontent.com/actito/actito-sdk-ios/main/.assets/logo.png"/>](https://actito.com)
+[<img src="https://cdn-mobile.actito.com/logo.png"/>](https://actito.com)
 
 # Actito .NET MAUI SDK
 
@@ -7,18 +7,15 @@
 
 The Actito .NET MAUI SDK makes it quick and easy to communicate efficiently with many of the Actito API services and enables you to seamlessly integrate our various features, from Push Notifications to Contextualised Storage.
 
-Get started with our [📚 integration guides](https://developers.actito.com/docs/push-implementation/net-maui/setup) and [example projects](#examples).
-
 
 Table of contents
 =================
 
 * [Features](#features)
-* [Installation](#installation)
-    * [Requirements](#requirements)
-    * [Configuration](#configuration)
+* [Requirements](#requirements)
 * [Getting Started](#getting-started)
-* [Examples](#examples)
+    * [Integration](#integration)
+    * [Examples](#examples)
 
 
 ## Features
@@ -38,37 +35,19 @@ Table of contents
 **Assets**: Add powerful contextual marketing features to your apps. Show the right content to the right users at the right time or location. Maximise the content you're already creating without increasing development costs.
 
 
-## Installation
-
-### Requirements
+## Requirements
 
 * Android 6 (API level 23) and above
 * iOS 13 and above
 
-### Configuration
-
-Add the .NET packages to your `*.csproj` and follow the Getting Started guide.
-
-```bash
-# Required
-dotnet add package Actito
-
-# Optional modules
-dotnet add package Actito.Assets
-dotnet add package Actito.Geo
-dotnet add package Actito.InAppMessaging
-dotnet add package Actito.Inbox
-dotnet add package Actito.Loyalty
-dotnet add package Actito.Push
-dotnet add package Actito.Push.UI
-dotnet add package Actito.UserInbox
-```
-
 ## Getting Started
 
 ### Integration
-Get started with our [📚 integration guides](https://developers.actito.com/docs/push-implementation/net-maui/setup) and [example projects](#examples).
 
+To integrate the Actito .NET MAUI SDK into your application, follow the full setup and implementation guides available in our [official documentation](https://developers.actito.com/docs/push-implementation/net-maui/setup)
+
+The documentation includes step-by-step instructions for installation, configuration, and advanced customization across all supported platforms.
 
 ### Examples
-- The [example project](https://github.com/actito/actito-sdk-dotnet/tree/main/Sample) demonstrates other integrations in a simplified fashion, to quickly understand how a given feature should be implemented.
+
+The [example project](https://github.com/actito/actito-sdk-dotnet/tree/main/Sample) demonstrates other integrations in a simplified fashion, to quickly understand how a given feature should be implemented.
