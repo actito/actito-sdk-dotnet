@@ -5,9 +5,10 @@
              xmlns:models="clr-namespace:Sample.Models"
              xmlns:inboxViews="clr-namespace:Sample.Pages.Inbox.Views"
              xmlns:viewModels="clr-namespace:Sample.ViewModels"
+             xmlns:strings="clr-namespace:Sample.Resources.Strings"
              x:Class="Sample.Pages.Inbox.InboxPage"
              x:Name="This"
-             Title="Inbox">
+             Title="{x:Static strings:AppResources.title_inbox}">
 
     <ContentPage.BindingContext>
         <viewModels:InboxViewModel />

@@ -1,0 +1,5 @@
+<resources>
+  <string name="actito_dialog_ok_button">Sim</string>
+  <string name="actito_dialog_cancel_button">Cancelar</string>
+  <string name="actito_dialog_close_button">Fechar</string>
+</resources>
