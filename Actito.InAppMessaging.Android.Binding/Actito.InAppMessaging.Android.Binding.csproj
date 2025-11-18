@@ -7,20 +7,23 @@
           To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
         -->
         <IsTrimmable>true</IsTrimmable>
+
+        <NativeLibraryVersion>5.0.0-beta.1</NativeLibraryVersion>
+        <NativeLibraryMavenRepository>Central</NativeLibraryMavenRepository>
     </PropertyGroup>
 
     <ItemGroup>
         <AndroidMavenLibrary
                 Include="com.actito:actito-in-app-messaging"
-                Version="5.0.0-canary.2"
+                Version="$(NativeLibraryVersion)"
                 VerifyDependencies="false"
                 Bind="true"
-                Repository="https://maven.notifica.re/prereleases"/>
+                Repository="$(NativeLibraryMavenRepository)"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.7.0.5"/>
-        <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.2.0.2"/>
-        <PackageReference Include="Xamarin.AndroidX.DataBinding.ViewBinding" Version="8.2.2.1"/>
+        <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.7.1.1"/>
+        <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.2.1.3"/>
+        <PackageReference Include="Xamarin.AndroidX.DataBinding.ViewBinding" Version="8.13.0"/>
     </ItemGroup>
 </Project>

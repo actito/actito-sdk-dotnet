@@ -1,9 +1,8 @@
 # Android
-notificare-services.json
-agconnect-services.json
+actito-services.json
 google-services.json
 *.keystore
 manifest_properties.xml
 
 # iOS
-NotificareServices.plist
+ActitoServices.plist

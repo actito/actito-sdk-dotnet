@@ -159,7 +159,18 @@ public partial class InboxViewModel : ObservableObject
     [RelayCommand]
     private void Refresh()
     {
-        ActitoInbox.Refresh();
+        Task.Run(async () =>
+        {
+            try
+            {
+                await ActitoInbox.RefreshAsync();
+                Console.WriteLine("Cleared inbox successfully.");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Failed to clear inbox: {e.Message}");
+            }
+        });
     }
 
     private void OnInboxUpdated(object? sender, ActitoInboxUpdatedEventArgs e)

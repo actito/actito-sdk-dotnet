@@ -61,7 +61,7 @@ public static class ActitoInbox
     /// <summary>
     /// Refreshes the inbox data, ensuring the items and badge count reflect the latest server state.
     /// </summary>
-    public static void Refresh() => Platform.Refresh();
+    public static Task RefreshAsync() => Platform.RefreshAsync();
 
     /// <summary>
     /// Opens a specified inbox item, marking it as read and returning the associated notification.

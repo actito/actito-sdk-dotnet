@@ -8,6 +8,7 @@ public typealias SuccessBlock<T> = (T) -> Void
 public typealias VoidBlock = () -> Void
 public typealias ErrorBlock = (Error) -> Void
 
+@MainActor
 @objc(ActitoPushUINativeBinding)
 public class ActitoPushUINativeBinding : NSObject {
 
@@ -37,43 +38,43 @@ public class ActitoPushUINativeBinding : NSObject {
 }
 
 extension ActitoPushUINativeBinding : ActitoPushUIDelegate {
-    public func actito(_ actitoPushUI: any ActitoPushUIKit.ActitoPushUI, willPresentNotification notification: ActitoKit.ActitoNotification) {
+    public func actito(_ actitoPushUI: ActitoPushUIKit.ActitoPushUI, willPresentNotification notification: ActitoKit.ActitoNotification) {
         delegate?.actito(self, willPresentNotification: ActitoNotification(from: notification))
     }
 
-    public func actito(_ actitoPushUI: any ActitoPushUIKit.ActitoPushUI, didPresentNotification notification: ActitoKit.ActitoNotification) {
+    public func actito(_ actitoPushUI: ActitoPushUIKit.ActitoPushUI, didPresentNotification notification: ActitoKit.ActitoNotification) {
         delegate?.actito(self, didPresentNotification: ActitoNotification(from: notification))
     }
 
-    public func actito(_ actitoPushUI: any ActitoPushUIKit.ActitoPushUI, didFinishPresentingNotification notification: ActitoKit.ActitoNotification) {
+    public func actito(_ actitoPushUI: ActitoPushUIKit.ActitoPushUI, didFinishPresentingNotification notification: ActitoKit.ActitoNotification) {
         delegate?.actito(self, didFinishPresentingNotification: ActitoNotification(from: notification))
     }
 
-    public func actito(_ actitoPushUI: any ActitoPushUIKit.ActitoPushUI, didFailToPresentNotification notification: ActitoKit.ActitoNotification) {
+    public func actito(_ actitoPushUI: ActitoPushUIKit.ActitoPushUI, didFailToPresentNotification notification: ActitoKit.ActitoNotification) {
         delegate?.actito(self, didFailToPresentNotification: ActitoNotification(from: notification))
     }
 
-    public func actito(_ actitoPushUI: any ActitoPushUIKit.ActitoPushUI, didClickURL url: URL, in notification: ActitoKit.ActitoNotification) {
+    public func actito(_ actitoPushUI: ActitoPushUIKit.ActitoPushUI, didClickURL url: URL, in notification: ActitoKit.ActitoNotification) {
         delegate?.actito(self, didClickURL: url, in: ActitoNotification(from: notification))
     }
 
-    public func actito(_ actitoPushUI: any ActitoPushUIKit.ActitoPushUI, willExecuteAction action: ActitoKit.ActitoNotification.Action, for notification: ActitoKit.ActitoNotification) {
+    public func actito(_ actitoPushUI: ActitoPushUIKit.ActitoPushUI, willExecuteAction action: ActitoKit.ActitoNotification.Action, for notification: ActitoKit.ActitoNotification) {
         delegate?.actito(self, willExecuteAction: ActitoNotificationAction(from: action), for: ActitoNotification(from: notification))
     }
 
-    public func actito(_ actitoPushUI: any ActitoPushUIKit.ActitoPushUI, didExecuteAction action: ActitoKit.ActitoNotification.Action, for notification: ActitoKit.ActitoNotification) {
+    public func actito(_ actitoPushUI: ActitoPushUIKit.ActitoPushUI, didExecuteAction action: ActitoKit.ActitoNotification.Action, for notification: ActitoKit.ActitoNotification) {
         delegate?.actito(self, didExecuteAction: ActitoNotificationAction(from: action), for: ActitoNotification(from: notification))
     }
 
-    public func actito(_ actitoPushUI: any ActitoPushUIKit.ActitoPushUI, didNotExecuteAction action: ActitoKit.ActitoNotification.Action, for notification: ActitoKit.ActitoNotification) {
+    public func actito(_ actitoPushUI: ActitoPushUIKit.ActitoPushUI, didNotExecuteAction action: ActitoKit.ActitoNotification.Action, for notification: ActitoKit.ActitoNotification) {
         delegate?.actito(self, didNotExecuteAction: ActitoNotificationAction(from: action), for: ActitoNotification(from: notification))
     }
 
-    public func actito(_ actitoPushUI: any ActitoPushUIKit.ActitoPushUI, didFailToExecuteAction action: ActitoKit.ActitoNotification.Action, for notification: ActitoKit.ActitoNotification, error: (any Error)?) {
+    public func actito(_ actitoPushUI: ActitoPushUIKit.ActitoPushUI, didFailToExecuteAction action: ActitoKit.ActitoNotification.Action, for notification: ActitoKit.ActitoNotification, error: (any Error)?) {
         delegate?.actito(self, didFailToExecuteAction: ActitoNotificationAction(from: action), for: ActitoNotification(from: notification), error: error)
     }
 
-    public func actito(_ actitoPushUI: any ActitoPushUIKit.ActitoPushUI, didReceiveCustomAction url: URL, in action: ActitoKit.ActitoNotification.Action, for notification: ActitoKit.ActitoNotification) {
+    public func actito(_ actitoPushUI: ActitoPushUIKit.ActitoPushUI, didReceiveCustomAction url: URL, in action: ActitoKit.ActitoNotification.Action, for notification: ActitoKit.ActitoNotification) {
         delegate?.actito(self, didReceiveCustomAction: url, in: ActitoNotificationAction(from: action), for: ActitoNotification(from: notification))
     }
 }

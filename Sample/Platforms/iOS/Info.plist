@@ -60,5 +60,12 @@
 	<string>We will need access to the device's microphone to reply to notifications.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We may need to access your photos to reply to notifications.</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>pt</string>
+	</array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
 </dict>
 </plist>

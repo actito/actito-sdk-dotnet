@@ -12,8 +12,8 @@
 		F222D7092D42B58C007E1C8A /* ActitoBinding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F222D7012D42B4FA007E1C8A /* ActitoBinding.framework */; };
 		F222D7562D55041C007E1C8A /* ActitoUserInboxResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F222D7542D55040E007E1C8A /* ActitoUserInboxResponse.swift */; };
 		F2288DF02D2833EB000B3643 /* ActitoUserInboxItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2288DEF2D2833EB000B3643 /* ActitoUserInboxItem.swift */; };
-		F28F91A22CEF8C8B00D914FD /* ActitoKit in Frameworks */ = {isa = PBXBuildFile; productRef = F28F91A12CEF8C8B00D914FD /* ActitoKit */; };
-		F2FFDE672D3E6CB1009961A2 /* ActitoUserInboxKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2FFDE662D3E6CB1009961A2 /* ActitoUserInboxKit */; };
+		F289727A2EC7496800F6A59B /* ActitoKit in Frameworks */ = {isa = PBXBuildFile; productRef = F28972792EC7496800F6A59B /* ActitoKit */; };
+		F289727C2EC7496800F6A59B /* ActitoUserInboxKit in Frameworks */ = {isa = PBXBuildFile; productRef = F289727B2EC7496800F6A59B /* ActitoUserInboxKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +41,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2FFDE672D3E6CB1009961A2 /* ActitoUserInboxKit in Frameworks */,
 				F222D7092D42B58C007E1C8A /* ActitoBinding.framework in Frameworks */,
-				F28F91A22CEF8C8B00D914FD /* ActitoKit in Frameworks */,
+				F289727C2EC7496800F6A59B /* ActitoUserInboxKit in Frameworks */,
+				F289727A2EC7496800F6A59B /* ActitoKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +142,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1620;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					83E34F522C21CB2B008AA950 = {
 						CreatedOnToolsVersion = 15.3;
@@ -160,7 +160,7 @@
 			);
 			mainGroup = 83E34F492C21CB2B008AA950;
 			packageReferences = (
-				E565F8A02E16A890009E1A44 /* XCRemoteSwiftPackageReference "actito-sdk-ios-in-house-releases" */,
+				F28972782EC7496800F6A59B /* XCRemoteSwiftPackageReference "actito-sdk-ios" */,
 			);
 			productRefGroup = 83E34F542C21CB2B008AA950 /* Products */;
 			projectDirPath = "";
@@ -246,6 +246,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -268,6 +269,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -310,6 +312,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -325,6 +328,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -339,6 +343,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -366,7 +371,7 @@
 				SDKROOT = auto;
 				SKIP_INSTALL = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -383,6 +388,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -410,7 +416,7 @@
 				SDKROOT = auto;
 				SKIP_INSTALL = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
@@ -442,33 +448,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E565F8A02E16A890009E1A44 /* XCRemoteSwiftPackageReference "actito-sdk-ios-in-house-releases" */ = {
+		F28972782EC7496800F6A59B /* XCRemoteSwiftPackageReference "actito-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/actito/actito-sdk-ios-in-house-releases";
+			repositoryURL = "https://github.com/actito/actito-sdk-ios";
 			requirement = {
 				kind = exactVersion;
-				version = "5.0.0-canary.1";
-			};
-		};
-		F28F91A02CEF8C8B00D914FD /* XCRemoteSwiftPackageReference "actito-sdk-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Actito/actito-sdk-ios";
-			requirement = {
-				kind = exactVersion;
-				version = "5.0.0-canary.1";
+				version = "5.0.0-beta.1";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F28F91A12CEF8C8B00D914FD /* ActitoKit */ = {
+		F28972792EC7496800F6A59B /* ActitoKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F28F91A02CEF8C8B00D914FD /* XCRemoteSwiftPackageReference "actito-sdk-ios" */;
+			package = F28972782EC7496800F6A59B /* XCRemoteSwiftPackageReference "actito-sdk-ios" */;
 			productName = ActitoKit;
 		};
-		F2FFDE662D3E6CB1009961A2 /* ActitoUserInboxKit */ = {
+		F289727B2EC7496800F6A59B /* ActitoUserInboxKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F28F91A02CEF8C8B00D914FD /* XCRemoteSwiftPackageReference "actito-sdk-ios" */;
+			package = F28972782EC7496800F6A59B /* XCRemoteSwiftPackageReference "actito-sdk-ios" */;
 			productName = ActitoUserInboxKit;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -5,7 +5,7 @@ using ActitoSdk.Push.Android.Internal;
 using ActitoSdk.Push.Core.Events;
 using ActitoSdk.Push.Core.Models;
 using ActitoSdk.Push.Core.Internal;
-using NativeActito = ActitoSdk.Push.Android.Binding.ActitoPushCompat;
+using NativeActito = ActitoSdk.Push.Android.Binding.ActitoPush;
 
 namespace ActitoSdk.Push.Android;
 

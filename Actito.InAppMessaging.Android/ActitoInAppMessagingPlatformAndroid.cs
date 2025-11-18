@@ -1,13 +1,13 @@
 using ActitoSdk.InAppMessaging.Android.Internal;
 using ActitoSdk.InAppMessaging.Core.Events;
 using ActitoSdk.InAppMessaging.Core.Internal;
-using NativeActito = ActitoSdk.InAppMessaging.Android.Binding.ActitoInAppMessagingCompat;
+using NativeActito = ActitoSdk.InAppMessaging.Android.Binding.ActitoInAppMessaging;
 
 namespace ActitoSdk.InAppMessaging.Android;
 
 public class ActitoInAppMessagingPlatformAndroid : IActitoInAppMessagingPlatform
 {
-    private Binding.IActitoInAppMessaging.IMessageLifecycleListener? _messageLifecycleListener;
+    private NativeActito.IMessageLifecycleListener? _messageLifecycleListener;
 
     public void Initialize()
     {
@@ -38,7 +38,7 @@ public class ActitoInAppMessagingPlatformAndroid : IActitoInAppMessagingPlatform
     }
 
 
-    private class LifecycleListener : Java.Lang.Object, Binding.IActitoInAppMessaging.IMessageLifecycleListener
+    private class LifecycleListener : Java.Lang.Object, NativeActito.IMessageLifecycleListener
     {
         private readonly ActitoInAppMessagingPlatformAndroid _platform;
 

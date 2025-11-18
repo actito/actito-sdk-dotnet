@@ -26,7 +26,17 @@ public class ActitoInboxPlatformIos : IActitoInboxPlatform
 
     public int Badge => _native.Badge.ToInt32();
 
-    public void Refresh() => _native.Refresh();
+    public Task RefreshAsync()
+    {
+        TaskCompletionSource completion = new();
+
+        _native.Refresh(
+            () => completion.TrySetResult(),
+            error => completion.TrySetException(new Exception(error.ToString()))
+        );
+        
+        return completion.Task;
+    }
 
     public Task<ActitoNotification> OpenAsync(ActitoInboxItem item)
     {

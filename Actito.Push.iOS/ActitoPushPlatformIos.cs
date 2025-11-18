@@ -174,7 +174,7 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
             if (option is ActitoPresentationOptions.List)
                 options |= UNNotificationPresentationOptions.List;
 #else
-            if (option is "alert") 
+            if (option is ActitoPresentationOptions.Alert) 
                 options |= UNNotificationPresentationOptions.Alert;
 #endif
 

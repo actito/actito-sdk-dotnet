@@ -40,6 +40,11 @@ class CSProject
           directory: 'Actito.Geo.Android.Binding'
         ),
         CSProject.new(
+          component: :geo_beacons,
+          platform: :android,
+          directory: 'Actito.Geo.Android.Beacons'
+        ),
+        CSProject.new(
           component: :geo,
           platform: :ios,
           directory: 'Actito.Geo.iOS.Binding'
@@ -148,12 +153,66 @@ class CSProject
     file_contents.scan(/libs\\|\/(\w+.xcframework)/).flatten
   end
 
+  def update_native_library_version(version)
+    if platform == :android
+      update_native_android_library_version(version)
+    else
+      update_native_ios_library_version(version)
+    end
+  end
+
+  private def update_native_android_library_version(version)
+    file = File.join(directory, "#{directory}.csproj")
+    contents = File.read(file)
+
+    contents = contents.gsub(
+      /<NativeLibraryVersion>(.*)<\/NativeLibraryVersion>/,
+      "<NativeLibraryVersion>#{version}</NativeLibraryVersion>"
+    )
+
+    maven_repository = "Central"
+    if version.include? "-SNAPSHOT"
+      maven_repository = "https://central.sonatype.com/repository/maven-snapshots/"
+    end
+
+    contents = contents.gsub(
+      /<NativeLibraryMavenRepository>(.*)<\/NativeLibraryMavenRepository>/,
+      "<NativeLibraryMavenRepository>#{maven_repository}</NativeLibraryMavenRepository>"
+    )
+
+    File.write(file, contents)
+  end
+
+  private def update_native_ios_library_version(version)
+    bridge_project_directory = "#{directory}.Bridge"
+    file = File.join(bridge_project_directory, "#{binding_scheme}.xcodeproj", 'project.pbxproj')
+    contents = File.read(file)
+
+    repository_name = "actito-sdk-ios"
+    repository_url = "https://github.com/actito/actito-sdk-ios"
+    if version.include? "canary"
+      repository_name = "actito-sdk-ios-in-house-releases"
+      repository_url = "git@github.com:actito/actito-sdk-ios-in-house-releases.git"
+    end
+
+    contents = contents.gsub(
+      /XCRemoteSwiftPackageReference "actito-sdk-ios(-in-house-releases)?"/,
+      "XCRemoteSwiftPackageReference \"#{repository_name}\""
+    )
+
+    contents = contents.gsub(/(Begin XCRemoteSwiftPackageReference.*RemoteSwiftPackageReference "#{repository_name}".*repositoryURL = ")[^;]+(";.*requirement = {.*kind = exactVersion;.*version = ")[^;]+(";.*\};.*End XCRemoteSwiftPackageReference)/m) do
+      "#{$1}#{repository_url}#{$2}#{version}#{$3}"
+    end
+
+    File.write(file, contents)
+  end
+
   protected def root_namespace
     file_contents = File.read(File.join(directory, "#{directory}.csproj"))
     file_contents.match(/<RootNamespace>(.+)<\/RootNamespace>/).captures[0]
   end
 
-  private def binding_scheme
+  def binding_scheme
     file_contents = File.read(File.join(directory, "#{directory}.csproj"))
     file_contents.match(/<SchemeName>(.+)<\/SchemeName>/).captures[0]
   end
@@ -162,7 +221,7 @@ class CSProject
     command = <<~COMMAND
       sharpie bind --output=sharpie-out \
         --namespace=#{root_namespace} \
-        --sdk=#{latest_sharpie_sdk} \
+        --sdk=iphoneos18.2 \
         --scope=Headers \
         Headers/#{binding_scheme}-Swift.h
     COMMAND

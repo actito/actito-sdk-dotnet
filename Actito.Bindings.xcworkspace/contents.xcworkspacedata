@@ -29,9 +29,6 @@
       location = "group:Actito.Push.UI.iOS.Binding.Bridge/ActitoPushUIBinding.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Actito.Scannables.iOS.Binding.Bridge/ActitoScannablesBinding.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Actito.UserInbox.iOS.Binding.Bridge/ActitoUserInboxBinding.xcodeproj">
    </FileRef>
 </Workspace>

@@ -6,6 +6,7 @@ public typealias SuccessBlock<T> = (T) -> Void
 public typealias VoidBlock = () -> Void
 public typealias ErrorBlock = (Error) -> Void
 
+@MainActor
 @objc(ActitoInAppMessagingNativeBinding)
 public class ActitoInAppMessagingNativeBinding : NSObject {
 
@@ -30,23 +31,23 @@ public class ActitoInAppMessagingNativeBinding : NSObject {
 }
 
 extension ActitoInAppMessagingNativeBinding : ActitoInAppMessagingDelegate {
-    public func actito(_ actito: any ActitoInAppMessaging, didPresentMessage message: ActitoInAppMessagingKit.ActitoInAppMessage) {
+    public func actito(_ actito: ActitoInAppMessaging, didPresentMessage message: ActitoInAppMessagingKit.ActitoInAppMessage) {
         delegate?.actito(self, didPresentMessage: ActitoInAppMessage(from: message))
     }
 
-    public func actito(_ actito: any ActitoInAppMessaging, didFinishPresentingMessage message: ActitoInAppMessagingKit.ActitoInAppMessage) {
+    public func actito(_ actito: ActitoInAppMessaging, didFinishPresentingMessage message: ActitoInAppMessagingKit.ActitoInAppMessage) {
         delegate?.actito(self, didFinishPresentingMessage: ActitoInAppMessage(from: message))
     }
 
-    public func actito(_ actito: any ActitoInAppMessaging, didFailToPresentMessage message: ActitoInAppMessagingKit.ActitoInAppMessage) {
+    public func actito(_ actito: ActitoInAppMessaging, didFailToPresentMessage message: ActitoInAppMessagingKit.ActitoInAppMessage) {
         delegate?.actito(self, didFailToPresentMessage: ActitoInAppMessage(from: message))
     }
 
-    public func actito(_ actito: any ActitoInAppMessaging, didExecuteAction action: ActitoInAppMessagingKit.ActitoInAppMessage.Action, for message: ActitoInAppMessagingKit.ActitoInAppMessage) {
+    public func actito(_ actito: ActitoInAppMessaging, didExecuteAction action: ActitoInAppMessagingKit.ActitoInAppMessage.Action, for message: ActitoInAppMessagingKit.ActitoInAppMessage) {
         delegate?.actito(self, didExecuteAction: ActitoInAppMessageAction(from: action), for: ActitoInAppMessage(from: message))
     }
 
-    public func actito(_ actito: any ActitoInAppMessaging, didFailToExecuteAction action: ActitoInAppMessagingKit.ActitoInAppMessage.Action, for message: ActitoInAppMessagingKit.ActitoInAppMessage, error: (any Error)?) {
+    public func actito(_ actito: ActitoInAppMessaging, didFailToExecuteAction action: ActitoInAppMessagingKit.ActitoInAppMessage.Action, for message: ActitoInAppMessagingKit.ActitoInAppMessage, error: (any Error)?) {
         delegate?.actito(self, didFailToExecuteAction: ActitoInAppMessageAction(from: action), for: ActitoInAppMessage(from: message), error: error)
     }
 }

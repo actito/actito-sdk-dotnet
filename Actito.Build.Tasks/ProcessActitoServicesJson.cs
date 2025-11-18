@@ -35,9 +35,11 @@ public class ProcessActitoServicesJson : Task
         }
 
         if (ActitoServicesJsonPaths.Length > 1)
+        {
             Log.LogWarning(
                 "Multiple ActitoServicesJson files defined, continuing with the first one."
             );
+        }
 
         var actitoServicesJson = ActitoServicesJsonPaths.First();
         var actitoServicesJsonPath = CleanPath(actitoServicesJson.ItemSpec);
@@ -64,9 +66,9 @@ public class ProcessActitoServicesJson : Task
 
         var resItems = new Dictionary<string, string>
         {
-            { "notificare_services_application_id", actitoServices.ProjectInfo.ApplicationId },
-            { "notificare_services_application_key", actitoServices.ProjectInfo.ApplicationKey },
-            { "notificare_services_application_secret", actitoServices.ProjectInfo.ApplicationSecret }
+            { "actito_services_application_id", actitoServices.ProjectInfo.ApplicationId },
+            { "actito_services_application_key", actitoServices.ProjectInfo.ApplicationKey },
+            { "actito_services_application_secret", actitoServices.ProjectInfo.ApplicationSecret }
         };
 
         if (resItems.Any(kvp => string.IsNullOrEmpty(kvp.Value)))
@@ -79,9 +81,9 @@ public class ProcessActitoServicesJson : Task
 
         if (actitoServices.HostsInfo != null)
         {
-            resItems["notificare_services_hosts_rest_api"] = actitoServices.HostsInfo.RestApi;
-            resItems["notificare_services_hosts_app_links"] = actitoServices.HostsInfo.AppLinks;
-            resItems["notificare_services_hosts_short_links"] = actitoServices.HostsInfo.ShortLinks;
+            resItems["actito_services_hosts_rest_api"] = actitoServices.HostsInfo.RestApi;
+            resItems["actito_services_hosts_app_links"] = actitoServices.HostsInfo.AppLinks;
+            resItems["actito_services_hosts_short_links"] = actitoServices.HostsInfo.ShortLinks;
         }
 
         Log.LogMessage($"Writing ActitoServicesJson Resource: {resValuesPath}");

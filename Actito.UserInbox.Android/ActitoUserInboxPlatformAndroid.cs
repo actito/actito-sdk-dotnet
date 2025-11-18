@@ -3,7 +3,7 @@ using ActitoSdk.UserInbox.Core.Internal;
 using ActitoSdk.UserInbox.Core.Models;
 using ActitoSdk.Core.Models;
 using ActitoSdk.UserInbox.Android.Internal;
-using NativeActito = ActitoSdk.UserInbox.Android.Binding.ActitoUserInboxCompat;
+using NativeActito = ActitoSdk.UserInbox.Android.Binding.ActitoUserInbox;
 
 namespace ActitoSdk.UserInbox.Android;
 

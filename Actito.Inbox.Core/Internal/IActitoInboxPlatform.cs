@@ -16,7 +16,7 @@ public interface IActitoInboxPlatform
 
     int Badge { get; }
 
-    void Refresh();
+    Task RefreshAsync();
 
     Task<ActitoNotification> OpenAsync(ActitoInboxItem item);
 

@@ -70,21 +70,21 @@
 
     <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
         <GoogleServicesJson Include="Platforms\Android\google-services.json" />
-        <ActitoServicesJson Include="Platforms\Android\notificare-services.json" />
+        <ActitoServicesJson Include="Platforms\Android\actito-services.json" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.Contains('ios'))">
-        <BundleResource Include="Platforms\iOS\NotificareServices.plist">
-            <Link>NotificareServices.plist</Link>
+        <BundleResource Include="Platforms\iOS\ActitoServices.plist">
+            <Link>ActitoServices.plist</Link>
         </BundleResource>
 
-        <BundleResource Include="Platforms\iOS\NotificareOptions.plist">
-            <Link>NotificareOptions.plist</Link>
+        <BundleResource Include="Platforms\iOS\ActitoOptions.plist">
+            <Link>ActitoOptions.plist</Link>
         </BundleResource>
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'net9.0-android'">
-        <PackageReference Include="Xamarin.AndroidX.Fragment.Ktx" Version="1.8.5.2" />
+    <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'android'">
+        <PackageReference Include="Xamarin.AndroidX.Fragment.Ktx" Version="1.8.9" />
     </ItemGroup>
 
     <ItemGroup>
@@ -95,5 +95,5 @@
         <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
     </ItemGroup>
-    
+
 </Project>

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <!--suppress MsbuildTargetFrameworkTagInspection -->
         <TargetFrameworks>net9.0</TargetFrameworks>
@@ -19,9 +19,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.Build.Framework" Version="17.13.9" PrivateAssets="All" />
-      <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.13.9" PrivateAssets="All" />
-      <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.13.9" PrivateAssets="All" />
+      <PackageReference Include="Microsoft.Build.Framework" Version="17.14.28" PrivateAssets="All" />
+      <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.14.28" PrivateAssets="All" />
+      <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.14.28" PrivateAssets="All" />
     </ItemGroup>
 
     <ItemGroup>

@@ -62,19 +62,19 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 
 		<ProjectReference Include="..\Actito\Actito.csproj" />
+		<ProjectReference Include="..\Actito.Assets\Actito.Assets.csproj" />
+		<ProjectReference Include="..\Actito.Geo\Actito.Geo.csproj" />
+		<ProjectReference Include="..\Actito.InAppMessaging\Actito.InAppMessaging.csproj" />
 		<ProjectReference Include="..\Actito.Inbox\Actito.Inbox.csproj" />
 		<ProjectReference Include="..\Actito.Push\Actito.Push.csproj" />
 		<ProjectReference Include="..\Actito.Push.UI\Actito.Push.UI.csproj" />
-		<ProjectReference Include="..\Actito.Geo\Actito.Geo.csproj" />
-		<ProjectReference Include="..\Actito.InAppMessaging\Actito.InAppMessaging.csproj" />
-		<ProjectReference Include="..\Actito.Assets\Actito.Assets.csproj" />
 	</ItemGroup>
 
 	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
 		<ProjectReference Include="..\Actito.Geo.Android.Beacons\Actito.Geo.Android.Beacons.csproj" />
 
     	<GoogleServicesJson Include="Platforms\Android\google-services.json" />
-		<ActitoServicesJson Include="Platforms\Android\notificare-services.json" />
+		<ActitoServicesJson Include="Platforms\Android\actito-services.json" />
 	</ItemGroup>
 
 	<ItemGroup Condition="$(TargetFramework.Contains('ios'))">
@@ -83,16 +83,42 @@
 			<IsWatchApp>false</IsWatchApp>
 		</ProjectReference>
 		
-		<BundleResource Include="Platforms\iOS\NotificareServices.plist">
-            <Link>NotificareServices.plist</Link>
+		<BundleResource Include="Platforms\iOS\ActitoServices.plist">
+            <Link>ActitoServices.plist</Link>
         </BundleResource>
 
-		<BundleResource Include="Platforms\iOS\NotificareOptions.plist">
-			<Link>NotificareOptions.plist</Link>
+		<BundleResource Include="Platforms\iOS\ActitoOptions.plist">
+			<Link>ActitoOptions.plist</Link>
 		</BundleResource>
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0-android'">
-	  <PackageReference Include="Xamarin.AndroidX.Fragment.Ktx" Version="1.8.5.2" />
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'android'">
+	  <PackageReference Include="Xamarin.AndroidX.Fragment.Ktx" Version="1.8.9" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\Strings\AppResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Resources\Strings\AppResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>AppResources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Platforms\iOS\Resources\Base.lproj\Localizable.strings">
+	    <Link>%(FullPath)</Link>
+	    <IsDefaultItem>true</IsDefaultItem>
+	  </None>
+	  <None Update="Platforms\iOS\Resources\pt.lproj\Localizable.strings">
+	    <Link>%(FullPath)</Link>
+	    <IsDefaultItem>true</IsDefaultItem>
+	  </None>
 	</ItemGroup>
 </Project>

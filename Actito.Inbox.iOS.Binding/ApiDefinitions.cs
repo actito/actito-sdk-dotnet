@@ -57,9 +57,9 @@ namespace ActitoSdk.Inbox.iOS.Binding
 		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
 		NSObject WeakDelegate { get; set; }
 
-		// -(void)refresh;
-		[Export ("refresh")]
-		void Refresh ();
+		// -(void)refresh:(void (^ _Nonnull)(void))onSuccess :(void (^ _Nonnull)(NSError * _Nonnull))onFailure;
+		[Export ("refresh::")]
+		void Refresh (Action onSuccess, Action<NSError> onFailure);
 
 		// -(void)refreshBadge:(void (^ _Nonnull)(NSInteger))onSuccess :(void (^ _Nonnull)(NSError * _Nonnull))onFailure;
 		[Export ("refreshBadge::")]

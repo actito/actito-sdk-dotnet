@@ -23,7 +23,7 @@ FileUtils.rm_rf('.tmp')
 FileUtils.mkdir('.tmp')
 
 puts "▸ Downloading XCFrameworks".green
-open("https://cdn.notifica.re/libs/actito/ios/internal/#{options.version}/cocoapods.zip") do |file|
+open("https://cdn-mobile.actito.com/libs/ios/#{options.version}/cocoapods.zip") do |file|
   Zip::File.open_buffer(file.read) do |zip_file|
     zip_file.each do |f|
       fpath = File.join('.tmp', f.name)

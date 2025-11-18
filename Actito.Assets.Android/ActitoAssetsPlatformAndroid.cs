@@ -2,7 +2,7 @@ using ActitoSdk.Android.Internal;
 using ActitoSdk.Assets.Android.Internal;
 using ActitoSdk.Assets.Core.Internal;
 using ActitoSdk.Assets.Core.Models;
-using NativeActito = ActitoSdk.Assets.Android.Binding.ActitoAssetsCompat;
+using NativeActito = ActitoSdk.Assets.Android.Binding.ActitoAssets;
 
 namespace ActitoSdk.Assets.Android;
 

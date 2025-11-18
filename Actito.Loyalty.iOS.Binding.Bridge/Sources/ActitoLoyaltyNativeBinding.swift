@@ -7,6 +7,7 @@ public typealias SuccessBlock<T> = (T) -> Void
 public typealias VoidBlock = () -> Void
 public typealias ErrorBlock = (Error) -> Void
 
+@MainActor
 @objc(ActitoLoyaltyNativeBinding)
 public class ActitoLoyaltyNativeBinding : NSObject {
 
