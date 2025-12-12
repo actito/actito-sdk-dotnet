@@ -4,8 +4,8 @@ using ActitoSdk.Core.Events;
 using ActitoSdk.Core.Internal;
 using ActitoSdk.Core.Models;
 using NativeActito = ActitoSdk.Android.Binding.Actito;
-using NativeActitoDevice = ActitoSdk.Android.Binding.ActitoDeviceModule;
-using NativeActitoEvents = ActitoSdk.Android.Binding.ActitoEventsModule;
+using NativeActitoDevice = ActitoSdk.Android.Binding.ActitoDeviceComponent;
+using NativeActitoEvents = ActitoSdk.Android.Binding.ActitoEventsComponent;
 
 namespace ActitoSdk.Android;
 
