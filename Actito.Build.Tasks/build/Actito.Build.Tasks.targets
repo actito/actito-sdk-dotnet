@@ -1,0 +1,67 @@
+<!--
+  NuGet automatically imports this file into any project that has a PackageReference to 'Actito.Build.Tasks'.
+
+  To see this in action, execute "dotnet restore" on the consumer project and look in the obj/ folder for
+  a file named YourProject.csproj.g.nuget.targets. You'll see inside that it contains an "Import" to this file.
+ -->
+<Project>
+    <!-- the pre-build checks -->
+    <Target Name="CheckForActitoServicesJson" Condition=" '@(ActitoServicesJson)' == '' " BeforeTargets="BeforeBuild">
+        <Message Text="ActitoServicesJson file not specified. Make sure to configure Actito manually." Importance="high"/>
+    </Target>
+
+    <PropertyGroup>
+        <ProcessActitoServicesJsonResDirName Condition=" '$(ProcessActitoServicesJsonResDirName)' == '' ">actito-services-json</ProcessActitoServicesJsonResDirName>
+
+        <ProcessActitoServicesJsonResDirPath>$(IntermediateOutputPath)$(ProcessActitoServicesJsonResDirName)\</ProcessActitoServicesJsonResDirPath>
+        <ProcessActitoServicesJsonResStringsPath>$(ProcessActitoServicesJsonResDirPath)values\actito_services_json.xml</ProcessActitoServicesJsonResStringsPath>
+        <ProcessActitoServicesJsonStampPath>$(IntermediateOutputPath)actito-services-json.stamp</ProcessActitoServicesJsonStampPath>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CleanDependsOn>
+            $(CleanDependsOn);
+            _CleanProcessActitoServicesJson;
+        </CleanDependsOn>
+    </PropertyGroup>
+
+    <Target
+            Name="SetupActitoServicesJson"
+            Condition=" '@(ActitoServicesJson)' != '' AND '$(AndroidApplication)' == 'True' ">
+
+        <ConvertToAbsolutePath Paths="$(ProcessActitoServicesJsonResDirPath)">
+            <Output TaskParameter="AbsolutePaths" PropertyName="ProcessActitoServicesJsonResDirPathAbs"/>
+        </ConvertToAbsolutePath>
+    </Target>
+
+    <Target
+            Name="ProcessActitoServicesJson"
+            Condition=" '@(ActitoServicesJson)' != '' AND '$(AndroidApplication)' == 'True' "
+            AfterTargets="_ValidateAndroidPackageProperties"
+            DependsOnTargets="SetupActitoServicesJson"
+            Inputs="@(ActitoServicesJson)"
+            Outputs="$(ProcessActitoServicesJsonStampPath)">
+
+        <ProcessActitoServicesJson
+                ActitoServicesJsonPaths="@(ActitoServicesJson)"
+                ResPath="$(ProcessActitoServicesJsonResDirPath)"
+                StampPath="$(ProcessActitoServicesJsonStampPath)"
+                ResStringsPath="$(ProcessActitoServicesJsonResStringsPath)">
+            <Output TaskParameter="ResPathAbsolute" ItemName="LibraryResourceDirectories"/>
+        </ProcessActitoServicesJson>
+
+        <ItemGroup>
+            <LibraryResourceDirectories Condition="Exists ('$(ProcessActitoServicesJsonResDirPathAbs)')" Include="$(ProcessActitoServicesJsonResDirPathAbs)">
+                <StampFile>$(ProcessActitoServicesJsonStampPath)</StampFile>
+            </LibraryResourceDirectories>
+            <FileWrites
+                    Condition="Exists ('$(ProcessActitoServicesJsonResStringsPath)')"
+                    Include="$(ProcessActitoServicesJsonResStringsPath)"/>
+        </ItemGroup>
+    </Target>
+
+    <Target Name="_CleanProcessActitoServicesJson">
+        <RemoveDir Directories="$(ProcessActitoServicesJsonResDirPath)" Condition="Exists ('$(ProcessActitoServicesJsonResDirPath)' )"/>
+        <Delete Files="$(ProcessActitoServicesJsonStampPath)"/>
+    </Target>
+</Project>

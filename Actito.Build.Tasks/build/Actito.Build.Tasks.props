@@ -1,0 +1,21 @@
+<!--
+  NuGet automatically imports this file into any project that has a PackageReference to 'Actito.Build.Tasks'.
+
+  To see this in action, execute "dotnet restore" on the consumer project and look in the obj/ folder for
+  a file named YourProject.csproj.g.nuget.props. You'll see inside that it contains an "Import" to this file.
+ -->
+<Project TreatAsLocalProperty="_TaskTfm;_TaskAssembly">
+    <PropertyGroup>
+        <_TaskTfm>net9.0</_TaskTfm>
+        <_TaskAssembly>$(MSBuildThisFileDirectory)..\tools\$(_TaskTfm)\Actito.Build.Tasks.dll</_TaskAssembly>
+    </PropertyGroup>
+
+    <!-- make the 'ActitoServicesJson' build action available in the Visual Studio dropdown -->
+    <ItemGroup>
+        <AvailableItemName Include="ActitoServicesJson"/>
+    </ItemGroup>
+
+    <UsingTask
+            AssemblyFile="$(_TaskAssembly)"
+            TaskName="Actito.Build.Tasks.ProcessActitoServicesJson"/>
+</Project>

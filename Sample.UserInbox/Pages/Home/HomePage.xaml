@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Sample.UserInbox.Pages.Home.Views"
+             x:Class="Sample.UserInbox.Pages.Home.HomePage"
+             Title="Sample"
+             x:Name="This">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout x:Name="HomeCardsView" Margin="12" Spacing="26">
+
+                <views:LaunchFlowCardView
+                    IsReady="{Binding IsReady}"
+                    LaunchCommand="{Binding LaunchCommand}"
+                    UnlaunchCommand="{Binding UnlaunchCommand}" />
+
+                <views:AuthenticationFlowCardView
+                    IsLoggedIn="{Binding IsLoggedIn}"
+                    LoginCommand="{Binding LoginCommand}"
+                    LogoutCommand="{Binding LogoutCommand}" />
+
+                <views:RemoteNotificationsCardView
+                    Token="{Binding AccessToken}"
+                    HasNotificationsEnabled="{Binding HasNotificationsEnabled}"
+                    Badge="{Binding Badge}"
+                    EnableRemoteNotificationsCommand="{Binding EnableRemoteNotificationsCommand }"
+                    DisableRemoteNotificationsCommand="{Binding DisableRemoteNotificationsCommand }" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

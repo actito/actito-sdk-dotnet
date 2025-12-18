@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.InAppMessaging.Android</RootNamespace>
+        <!--
+          Enable trim analyzers for Android class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Actito.InAppMessaging.Core\Actito.InAppMessaging.Core.csproj"/>
+        <ProjectReference Include="..\Actito.InAppMessaging.Android.Binding\Actito.InAppMessaging.Android.Binding.csproj"/>
+    </ItemGroup>
+</Project>

@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.Geo.Android.Beacons</RootNamespace>
+
+        <!--
+          Enable trim analyzers for Android class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+
+        <NativeLibraryVersion>5.0.0-beta.2</NativeLibraryVersion>
+        <NativeLibraryMavenRepository>Central</NativeLibraryMavenRepository>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AndroidMavenLibrary
+                Include="com.actito:actito-geo-beacons"
+                Version="$(NativeLibraryVersion)"
+                VerifyDependencies="false"
+                Bind="false"
+                Repository="$(NativeLibraryMavenRepository)"/>
+
+        <AndroidMavenLibrary
+                Include="org.altbeacon:android-beacon-library"
+                Version="2.21.1"
+                VerifyDependencies="false"
+                Bind="false"/>
+    </ItemGroup>
+</Project>

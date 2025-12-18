@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Sample.Views"
+             xmlns:viewModels="clr-namespace:Sample.ViewModels"
+             x:Class="Sample.Pages.AssetsGroup.AssetsGroupPage"
+             Title="Assets">
+
+    <ContentPage.BindingContext>
+        <viewModels:AssetsGroupViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Margin="12" Spacing="26">
+
+                <views:CardView>
+                    <VerticalStackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                        <Entry x:Name="AssetsGroupInputText"
+                               Placeholder="Enter asset group..."
+                               FontSize="18" />
+
+                        <views:HorizontalDivider />
+
+                        <Button
+                            Text="Fetch Assets"
+                            Clicked="OnFetchButtonClicked"
+                            CornerRadius="0" />
+                    </VerticalStackLayout>
+                </views:CardView>
+
+                <VerticalStackLayout>
+                    <CollectionView ItemsSource="{Binding Assets}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <views:CardView Margin="0, 12, 0, 0">
+                                    <VerticalStackLayout
+                                        HorizontalOptions="FillAndExpand"
+                                        Padding="8, 8, 0, 8"
+                                        Spacing="8">
+
+                                        <views:KeyValueRowView
+                                            Key="Title"
+                                            Value="{Binding Title}"
+                                            Padding="0, 0, 8, 0" />
+
+                                        <views:HorizontalDivider />
+
+                                        <views:KeyValueRowView
+                                            Key="Description"
+                                            Value="{Binding .Description}"
+                                            Padding="0, 0, 8, 0" />
+
+                                        <views:HorizontalDivider />
+
+                                        <views:KeyValueRowView
+                                            Key="Key"
+                                            Value="{Binding Key}"
+                                            Padding="0, 0, 8, 0" />
+
+                                        <views:HorizontalDivider />
+
+                                        <Grid
+                                            HorizontalOptions="Fill"
+                                            VerticalOptions="Center"
+                                            Padding="0, 0, 8, 0">
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*" />
+                                                <ColumnDefinition Width="1*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label
+                                                Grid.Column="0"
+                                                Text="Url"
+                                                VerticalOptions="Center" />
+
+                                            <Image
+                                                Grid.Column="1"
+                                                Source="{Binding Url}"
+                                                BackgroundColor="LightGray"
+                                                Aspect="AspectFill"
+                                                HeightRequest="60"
+                                                WidthRequest="60"
+                                                HorizontalOptions="End">
+                                                <Image.Triggers>
+                                                    <DataTrigger TargetType="Image"
+                                                                 Binding="{Binding Url.Length, FallbackValue='0'}"
+                                                                 Value="0">
+                                                        <Setter Property="IsVisible" Value="False" />
+                                                    </DataTrigger>
+                                                </Image.Triggers>
+                                            </Image>
+                                        </Grid>
+
+                                        <views:HorizontalDivider />
+
+                                        <views:KeyValueRowView
+                                            Key="Button Label"
+                                            Value="{Binding Button.Label, FallbackValue=''}"
+                                            Padding="0, 0, 8, 0" />
+
+                                        <views:HorizontalDivider />
+
+                                        <views:KeyValueRowView
+                                            Key="Button Action"
+                                            Value="{Binding Button.Action, FallbackValue=''}"
+                                            Padding="0, 0, 8, 0" />
+
+                                        <views:HorizontalDivider />
+
+                                        <views:KeyValueRowView
+                                            Key="Content Type"
+                                            Value="{Binding MetaData.ContentType, FallbackValue=''}"
+                                            Padding="0, 0, 8, 0" />
+
+                                        <views:HorizontalDivider />
+
+                                        <views:KeyValueRowView
+                                            Key="Original File Name"
+                                            Value="{Binding MetaData.OriginalFileName, FallbackValue=''}"
+                                            Padding="0, 0, 8, 0" />
+
+                                        <views:HorizontalDivider />
+
+                                        <views:KeyValueRowView
+                                            Key="Content Length"
+                                            Value="{Binding MetaData.ContentLength, FallbackValue=''}"
+                                            Padding="0, 0, 8, 0" />
+
+                                        <views:HorizontalDivider />
+
+                                        <VerticalStackLayout HorizontalOptions="FillAndExpand" Padding="0, 8">
+                                            <Label
+                                                Text="Extra"
+                                                TextTransform="Uppercase"
+                                                FontAttributes="Bold"
+                                                FontSize="12"
+                                                Padding="8, 0" />
+
+                                            <CollectionView ItemsSource="{Binding Extra}">
+                                                <CollectionView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <views:KeyValueRowView
+                                                            Key="{Binding Key}"
+                                                            Value="{Binding Value}" Padding="8, 0" />
+                                                    </DataTemplate>
+                                                </CollectionView.ItemTemplate>
+                                            </CollectionView>
+                                        </VerticalStackLayout>
+                                    </VerticalStackLayout>
+                                </views:CardView>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

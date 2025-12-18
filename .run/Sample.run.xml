@@ -1,0 +1,19 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Sample" type="XamarinIOSProject" factoryName="Xamarin.iOS">
+    <option name="PROJECT_PATH" value="$PROJECT_DIR$/Sample/Sample.csproj" />
+    <option name="PROGRAM_PARAMETERS" value="" />
+    <option name="IS_PASS_PARENT_ENVS" value="false" />
+    <option name="EXTRA_MLAUNCH_PARAMETERS" value="" />
+    <option name="PLATFORM_TYPE" value="IOS" />
+    <method v="2" />
+  </configuration>
+  <configuration default="false" name="Sample" type="XamarinAndroidProject" factoryName="Xamarin.Android">
+    <option name="PROJECT_PATH" value="$PROJECT_DIR$/Sample/Sample.csproj" />
+    <option name="PROGRAM_PARAMETERS" value="" />
+    <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+    <option name="DEPLOY_BEHAVIOUR_NAME" value="Default" />
+    <method v="2">
+      <option name="Build" />
+    </method>
+  </configuration>
+</component>

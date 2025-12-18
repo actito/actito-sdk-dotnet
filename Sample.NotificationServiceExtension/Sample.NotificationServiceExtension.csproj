@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <!--suppress MsbuildTargetFrameworkTagInspection -->
+        <TargetFrameworks>net9.0-ios</TargetFrameworks>
+        <OutputType>Library</OutputType>
+
+        <ApplicationId>com.actito.sample.app.dev.notification-service-extension</ApplicationId>
+
+        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <ApplicationVersion>1</ApplicationVersion>
+
+        <Nullable>enable</Nullable>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IsAppExtension>True</IsAppExtension>
+        <IsWatchExtension>False</IsWatchExtension>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Registrar>static</Registrar>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\Actito.NotificationServiceExtension.iOS\Actito.NotificationServiceExtension.iOS.csproj" />
+    </ItemGroup>
+</Project>

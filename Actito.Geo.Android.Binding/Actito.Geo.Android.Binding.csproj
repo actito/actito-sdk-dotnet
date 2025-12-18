@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.Geo.Android.Binding</RootNamespace>
+
+        <!--
+          Enable trim analyzers for Android class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+
+        <NativeLibraryVersion>5.0.0-beta.2</NativeLibraryVersion>
+        <NativeLibraryMavenRepository>Central</NativeLibraryMavenRepository>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AndroidMavenLibrary
+                Include="com.actito:actito-geo"
+                Version="$(NativeLibraryVersion)"
+                VerifyDependencies="false"
+                Bind="true"
+                Repository="$(NativeLibraryMavenRepository)"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Xamarin.GooglePlayServices.Location" Version="121.3.0.7"/>
+    </ItemGroup>
+</Project>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Actito.iOS.Binding.Bridge/ActitoBinding.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Actito.Assets.iOS.Binding.Bridge/ActitoAssetsBinding.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Actito.Geo.iOS.Binding.Bridge/ActitoGeoBinding.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Actito.InAppMessaging.iOS.Binding.Bridge/ActitoInAppMessagingBinding.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Actito.Inbox.iOS.Binding.Bridge/ActitoInboxBinding.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Actito.Loyalty.iOS.Binding.Bridge/ActitoLoyaltyBinding.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Actito.NotificationServiceExtension.iOS.Binding.Bridge/ActitoNotificationServiceExtensionBinding.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Actito.Push.iOS.Binding.Bridge/ActitoPushBinding.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Actito.Push.UI.iOS.Binding.Bridge/ActitoPushUIBinding.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Actito.UserInbox.iOS.Binding.Bridge/ActitoUserInboxBinding.xcodeproj">
+   </FileRef>
+</Workspace>

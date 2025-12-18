@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Sample.Views"
+             xmlns:viewModels="clr-namespace:Sample.ViewModels"
+             x:Class="Sample.Pages.Device.DevicePage"
+             Title="Device">
+
+    <ContentPage.BindingContext>
+        <viewModels:DeviceViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout
+                HorizontalOptions="FillAndExpand"
+                Margin="12"
+                Spacing="8">
+
+                <FlexLayout Direction="Row">
+                    <Label
+                        Text="Current Device"
+                        TextTransform="Uppercase"
+                        FontSize="12"
+                        FlexLayout.Grow="1" />
+                </FlexLayout>
+
+                <views:CardView>
+                    <VerticalStackLayout
+                        HorizontalOptions="FillAndExpand"
+                        Padding="8, 8, 0, 8"
+                        Spacing="8">
+
+                        <views:KeyValueRowView
+                            Key="User ID"
+                            Value="{Binding UserId}"
+                            Padding="0, 0, 8, 0" />
+
+                        <views:HorizontalDivider />
+
+                        <views:KeyValueRowView
+                            Key="User Name"
+                            Value="{Binding UserName}"
+                            Padding="0, 0, 8, 0" />
+
+                        <views:HorizontalDivider />
+
+                        <views:KeyValueRowView
+                            Key="DnD"
+                            Value="{Binding UserDnD}"
+                            Padding="0, 0, 8, 0" />
+
+                        <views:HorizontalDivider />
+
+                        <views:KeyValueRowView
+                            Key="Preferred Language"
+                            Value="{Binding UserPreferredLanguage}"
+                            Padding="0, 0, 8, 0" />
+                    </VerticalStackLayout>
+                </views:CardView>
+
+                <views:CardView>
+                    <VerticalStackLayout HorizontalOptions="FillAndExpand" Padding="8, 8, 0, 8">
+                        <Label
+                            Text="User Data"
+                            TextTransform="Uppercase"
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            Padding="0, 0, 8, 0" />
+
+                        <views:HorizontalDivider />
+
+                        <CollectionView ItemsSource="{Binding UserData}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <views:KeyValueRowView
+                                        Key="{Binding Key}"
+                                        Value="{Binding Value}"
+                                        Padding="0, 0, 8, 0" />
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <Label
+                            Text="No Data"
+                            TextTransform="Uppercase"
+                            FontSize="12"
+                            IsVisible="False"
+                            Padding="8, 0">
+
+                            <Label.Triggers>
+                                <DataTrigger
+                                    TargetType="Label"
+                                    Binding="{Binding UserData.Count, FallbackValue='0'}"
+                                    Value="0">
+                                    <Setter Property="IsVisible" Value="True" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </VerticalStackLayout>
+                </views:CardView>
+
+                <FlexLayout Padding="0, 18, 0, 0">
+                    <Label
+                        Text="Update User"
+                        TextTransform="Uppercase"
+                        FontSize="12"
+                        FlexLayout.Grow="1" />
+                </FlexLayout>
+
+                <views:CardView>
+                    <VerticalStackLayout HorizontalOptions="FillAndExpand">
+                        <Button
+                            Text="Update User"
+                            Command="{Binding UpdateUserCommand}"
+                            CornerRadius="0" />
+
+                        <views:HorizontalDivider />
+
+                        <Button
+                            Text="Update User as Anonymous"
+                            Command="{Binding UpdateUserAsAnonymousCommand}"
+                            CornerRadius="0" />
+                    </VerticalStackLayout>
+                </views:CardView>
+
+                <FlexLayout Padding="0, 18, 0, 0">
+                    <Label
+                        Text="Language"
+                        TextTransform="Uppercase"
+                        FontSize="12"
+                        FlexLayout.Grow="1" />
+                </FlexLayout>
+
+                <views:CardView>
+                    <VerticalStackLayout HorizontalOptions="FillAndExpand">
+                        <Button
+                            Text="Update preferred language"
+                            Command="{Binding UpdatePreferredLanguageCommand}"
+                            CornerRadius="0" />
+
+                        <views:HorizontalDivider />
+
+                        <Button
+                            Text="Clear preferred language"
+                            Command="{Binding ClearPreferredLanguageCommand}"
+                            CornerRadius="0" />
+                    </VerticalStackLayout>
+                </views:CardView>
+
+                <FlexLayout Padding="0, 18, 0, 0">
+                    <Label
+                        Text="User Data"
+                        TextTransform="Uppercase"
+                        FontSize="12"
+                        FlexLayout.Grow="1" />
+                </FlexLayout>
+
+                <views:CardView>
+                    <VerticalStackLayout HorizontalOptions="FillAndExpand">
+                        <Button
+                            Text="Update user data"
+                            Command="{Binding UpdateUserDataCommand}"
+                            CornerRadius="0" />
+                        
+                        <views:HorizontalDivider />
+
+                        <Button
+                            Text="Reset user data"
+                            Command="{Binding ResetUserDataCommand}"
+                            CornerRadius="0" />
+                    </VerticalStackLayout>
+                </views:CardView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

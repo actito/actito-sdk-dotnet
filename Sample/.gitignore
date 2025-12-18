@@ -1,0 +1,8 @@
+# Android
+actito-services.json
+google-services.json
+*.keystore
+manifest_properties.xml
+
+# iOS
+ActitoServices.plist

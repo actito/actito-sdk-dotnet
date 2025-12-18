@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Sample.Models"
+             x:Class="Sample.Views.NavigationRowView"
+             x:Name="This">
+
+    <FlexLayout Direction="Row">
+        <HorizontalStackLayout FlexLayout.Grow="1">
+            <Label
+                Text="{Binding IconText, Source={x:Reference This}}"
+                VerticalTextAlignment="Center"
+                Style="{x:StaticResource MaterialIconRegular}" />
+
+            <Label
+                Text="{Binding LabelText, Source={x:Reference This}}"
+                Style="{x:StaticResource IconLabel}" />
+        </HorizontalStackLayout>
+
+        <Label
+            Text="{x:Static models:Icons.ArrowForward}"
+            TextColor="Gray"
+            VerticalTextAlignment="Center"
+            Style="{x:StaticResource MaterialIconRegular}" />
+    </FlexLayout>
+</ContentView>

@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.Android.Binding</RootNamespace>
+
+        <!--
+          Enable trim analyzers for Android class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+
+        <NativeLibraryVersion>5.0.0-beta.2</NativeLibraryVersion>
+        <NativeLibraryMavenRepository>Central</NativeLibraryMavenRepository>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AndroidMavenLibrary
+                Include="com.actito:actito"
+                Version="$(NativeLibraryVersion)"
+                VerifyDependencies="false"
+                Bind="true"
+                Repository="$(NativeLibraryMavenRepository)"/>
+
+        <AndroidMavenLibrary
+                Include="com.actito:actito-utilities"
+                Version="$(NativeLibraryVersion)"
+                VerifyDependencies="false"
+                Bind="false"
+                Repository="$(NativeLibraryMavenRepository)"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Actito.Build.Tasks" Version="1.0.0"/>
+
+        <PackageReference Include="Xamarin.Kotlin.Parcelize.Runtime" Version="2.2.20" />
+        <PackageReference Include="Xamarin.KotlinX.Coroutines.Android" Version="1.10.2.1" />
+        <PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.11.0" />
+        <PackageReference Include="Xamarin.AndroidX.Fragment.Ktx" Version="1.8.9" />
+        <PackageReference Include="Xamarin.AndroidX.Work.Work.Runtime.Ktx" Version="2.10.4" />
+        <PackageReference Include="Xamarin.Android.Binding.InstallReferrer" Version="2.2.0" />
+        <PackageReference Include="Xamarin.AndroidX.Room.Room.Ktx" Version="2.8.0" />
+        <PackageReference Include="Square.OkHttp3" Version="5.1.0.2" />
+        <!--
+        Use an AndroidMavenLibrary instead of a PackageReference to Square.OkHttp3.LoggingInterceptor
+        because that package targets Square.OkHttp3.JVM and we need Square.OkHttp3.Android instead, which is
+        provided by Square.OkHttp3.
+        -->
+        <AndroidMavenLibrary Include="com.squareup.okhttp3:logging-interceptor" Version="5.1.0" VerifyDependencies="false" Bind="false" />
+        <PackageReference Include="Square.Moshi" Version="1.13.0" />
+        <PackageReference Include="Square.Moshi.Adapters" Version="1.13.0" />
+        <PackageReference Include="Square.Moshi.Kotlin" Version="1.13.0" />
+        <PackageReference Include="Xamarin.Android.Glide" Version="5.0.5" />
+
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData.Ktx" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime.Ktx" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Service" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel.Ktx" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModelSavedState" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Process" Version="2.9.3" />
+        <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.5.0.3" />
+        <PackageReference Include="Xamarin.AndroidX.Collection.Ktx" Version="1.5.0.3" />
+    </ItemGroup>
+</Project>

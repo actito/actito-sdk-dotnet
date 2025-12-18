@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <RootNamespace>ActitoSdk.iOS.Binding</RootNamespace>
+
+        <!--
+          Enable trim analyzers for class libraries.
+          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+        -->
+        <IsTrimmable>true</IsTrimmable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ObjcBindingApiDefinition Include="ApiDefinitions.cs"/>
+        <ObjcBindingCoreSource Include="StructsAndEnums.cs"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <XcodeProject Include="../Actito.iOS.Binding.Bridge/ActitoBinding.xcodeproj">
+            <SchemeName>ActitoBinding</SchemeName>
+            <!-- Metadata applicable to @(NativeReference) will be used if set, otherwise the following defaults will be used:
+            <Kind>Framework</Kind>
+            <SmartLink>true</SmartLink>
+            -->
+        </XcodeProject>
+    </ItemGroup>
+
+    <ItemGroup>
+        <NativeReference Include="libs/ActitoKit.xcframework">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <SmartLink>False</SmartLink>
+            <Frameworks>Foundation UIKit</Frameworks>
+            <Visible>True</Visible>
+        </NativeReference>
+
+        <NativeReference Include="libs/ActitoUtilitiesKit.xcframework">
+            <Kind>Framework</Kind>
+            <ForceLoad>True</ForceLoad>
+            <SmartLink>False</SmartLink>
+            <Frameworks>Foundation UIKit</Frameworks>
+            <Visible>True</Visible>
+        </NativeReference>
+    </ItemGroup>
+</Project>

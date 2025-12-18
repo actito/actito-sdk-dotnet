@@ -1,0 +1,2 @@
+# Keep the build directory that contains the MSBuild props and targets.
+!/build/
