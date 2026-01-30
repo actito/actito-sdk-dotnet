@@ -122,7 +122,6 @@ public class ActitoApplicationRegionConfig
     }
 }
 
-
 /// <summary>
 /// Describes a user data field supported by an Actito application.
 /// </summary>

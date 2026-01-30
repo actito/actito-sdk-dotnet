@@ -189,7 +189,7 @@ public class ActitoNotificationAction
     public bool Keyboard { get; }
 
     /// <summary>
-    /// Whether the action requires camera access.
+    /// Whether the action requires camera input.
     /// </summary>
     public bool Camera { get; }
 
