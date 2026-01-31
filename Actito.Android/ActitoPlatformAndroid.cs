@@ -4,8 +4,6 @@ using ActitoSdk.Core.Events;
 using ActitoSdk.Core.Internal;
 using ActitoSdk.Core.Models;
 using NativeActito = ActitoSdk.Android.Binding.Actito;
-using NativeActitoDevice = ActitoSdk.Android.Binding.ActitoDeviceComponent;
-using NativeActitoEvents = ActitoSdk.Android.Binding.ActitoEventsComponent;
 
 namespace ActitoSdk.Android;
 
@@ -134,17 +132,17 @@ public class ActitoPlatformAndroid : IActitoPlatform
     {
         get
         {
-            var device = NativeActitoDevice.CurrentDevice;
+            var device = NativeActito.Device().CurrentDevice;
             return device == null ? null : ActitoNativeConverter.FromNativeDevice(device);
         }
     }
 
-    public string? PreferredLanguage => NativeActitoDevice.PreferredLanguage;
+    public string? PreferredLanguage => NativeActito.Device().PreferredLanguage;
 
     public async Task UpdatePreferredLanguageAsync(string? language)
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoDevice.UpdatePreferredLanguage(language, callback);
+        NativeActito.Device().UpdatePreferredLanguage(language, callback);
 
         await callback.Task;
     }
@@ -152,7 +150,7 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task UpdateUserAsync(string? userId, string? userName)
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoDevice.UpdateUser(userId, userName, callback);
+        NativeActito.Device().UpdateUser(userId, userName, callback);
 
         await callback.Task;
     }
@@ -160,7 +158,7 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task<IList<string>> FetchTagsAsync()
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoDevice.FetchTags(callback);
+        NativeActito.Device().FetchTags(callback);
 
         var result = await callback.Task ?? throw new ArgumentException("Native operation cannot return null.");
         var tags = (System.Collections.IList)result;
@@ -173,7 +171,7 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task AddTagAsync(string tag)
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoDevice.AddTag(tag, callback);
+        NativeActito.Device().AddTag(tag, callback);
 
         await callback.Task;
     }
@@ -181,7 +179,7 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task AddTagsAsync(IList<string> tags)
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoDevice.AddTags(tags, callback);
+        NativeActito.Device().AddTags(tags, callback);
 
         await callback.Task;
     }
@@ -189,7 +187,7 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task RemoveTagAsync(string tag)
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoDevice.RemoveTag(tag, callback);
+        NativeActito.Device().RemoveTag(tag, callback);
 
         await callback.Task;
     }
@@ -197,7 +195,7 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task RemoveTagsAsync(IList<string> tags)
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoDevice.RemoveTags(tags, callback);
+        NativeActito.Device().RemoveTags(tags, callback);
 
         await callback.Task;
     }
@@ -205,7 +203,7 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task ClearTagsAsync()
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoDevice.ClearTags(callback);
+        NativeActito.Device().ClearTags(callback);
 
         await callback.Task;
     }
@@ -213,7 +211,7 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task<ActitoDoNotDisturb?> FetchDoNotDisturbAsync()
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoDevice.FetchDoNotDisturb(callback);
+        NativeActito.Device().FetchDoNotDisturb(callback);
 
         var result = await callback.Task;
         var dnd = (Binding.Models.ActitoDoNotDisturb?)result;
@@ -224,7 +222,7 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task UpdateDoNotDisturbAsync(ActitoDoNotDisturb dnd)
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoDevice.UpdateDoNotDisturb(ActitoNativeConverter.ToNativeDoNotDisturb(dnd), callback);
+        NativeActito.Device().UpdateDoNotDisturb(ActitoNativeConverter.ToNativeDoNotDisturb(dnd), callback);
 
         await callback.Task;
     }
@@ -232,7 +230,7 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task ClearDoNotDisturbAsync()
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoDevice.ClearDoNotDisturb(callback);
+        NativeActito.Device().ClearDoNotDisturb(callback);
 
         await callback.Task;
     }
@@ -240,7 +238,7 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task<IDictionary<string, string>> FetchUserDataAsync()
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoDevice.FetchUserData(callback);
+        NativeActito.Device().FetchUserData(callback);
 
         var result = await callback.Task ?? throw new ArgumentException("Native operation cannot return null.");
 
@@ -260,7 +258,7 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task UpdateUserDataAsync(IDictionary<string, string?> userData)
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoDevice.UpdateUserData(userData, callback);
+        NativeActito.Device().UpdateUserData(userData, callback);
 
         await callback.Task;
     }
@@ -272,7 +270,7 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task LogCustomAsync(string eventName, IDictionary<string, object>? data = null)
     {
         var callback = new ActitoAwaitableCallback();
-        NativeActitoEvents.LogCustom(eventName, data == null ? null : ActitoNativeConverter.ToNativeExtraDictionary(data), callback);
+        NativeActito.Events().LogCustom(eventName, data == null ? null : ActitoNativeConverter.ToNativeExtraDictionary(data), callback);
 
         await callback.Task;
     }
