@@ -1,8 +1,8 @@
-﻿using Android.App;
+﻿using ActitoSdk;
+using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
-using ActitoSdk.Android.Binding;
 using ActitoSdk.Push;
 
 namespace Sample;
@@ -19,7 +19,7 @@ namespace Sample;
 [IntentFilter(
     new string[] { Intent.ActionView },
     Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
-    DataScheme = "com.actito.sample.app.dev")]   
+    DataScheme = "com.actito.sample.app.dev")]
 [IntentFilter(
     new string[] { Intent.ActionView },
     Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
@@ -46,7 +46,7 @@ public class MainActivity : MauiAppCompatActivity
         if (ActitoPush.HandleTrampolineIntent(intent)) return;
         if (Actito.HandleTestDeviceIntent(intent)) return;
         if (Actito.HandleDynamicLinkIntent(this, intent)) return;
-        
+
         var action = intent.Action;
         var data = intent.Data?.ToString();
 
