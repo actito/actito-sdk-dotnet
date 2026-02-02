@@ -8,7 +8,7 @@
         -->
         <IsTrimmable>true</IsTrimmable>
 
-        <NativeLibraryVersion>5.0.0-beta.2</NativeLibraryVersion>
+        <NativeLibraryVersion>5.0.0</NativeLibraryVersion>
         <NativeLibraryMavenRepository>Central</NativeLibraryMavenRepository>
     </PropertyGroup>
 
