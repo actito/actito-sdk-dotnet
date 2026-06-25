@@ -221,7 +221,7 @@ class CSProject
     command = <<~COMMAND
       sharpie bind --output=sharpie-out \
         --namespace=#{root_namespace} \
-        --sdk=iphoneos18.2 \
+        --sdk=iphoneos26.5 \
         --scope=Headers \
         Headers/#{binding_scheme}-Swift.h
     COMMAND
