@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>net9.0-android;net9.0-ios</TargetFrameworks>
+		<TargetFrameworks>net10.0-android;net10.0-ios</TargetFrameworks>
 
 		<OutputType>Exe</OutputType>
 		<RootNamespace>Sample</RootNamespace>
@@ -82,7 +82,7 @@
 			<IsAppExtension>true</IsAppExtension>
 			<IsWatchApp>false</IsWatchApp>
 		</ProjectReference>
-		
+
 		<BundleResource Include="Platforms\iOS\ActitoServices.plist">
             <Link>ActitoServices.plist</Link>
         </BundleResource>
