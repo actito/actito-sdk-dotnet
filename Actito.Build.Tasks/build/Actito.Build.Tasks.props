@@ -6,7 +6,8 @@
  -->
 <Project TreatAsLocalProperty="_TaskTfm;_TaskAssembly">
     <PropertyGroup>
-        <_TaskTfm>net9.0</_TaskTfm>
+        <_TaskTfm Condition="'$(TargetFramework)' == 'net10.0' or $(TargetFramework.Contains('net10.0'))">net10.0</_TaskTfm>
+        <_TaskTfm Condition="'$(_TaskTfm)' == ''">net9.0</_TaskTfm>
         <_TaskAssembly>$(MSBuildThisFileDirectory)..\tools\$(_TaskTfm)\Actito.Build.Tasks.dll</_TaskAssembly>
     </PropertyGroup>
 
