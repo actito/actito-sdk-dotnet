@@ -1,8 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <!--suppress MsbuildTargetFrameworkTagInspection -->
-        <TargetFrameworks>net10.0-ios</TargetFrameworks>
+        <TargetFrameworks>net9.0-ios</TargetFrameworks>
         <OutputType>Library</OutputType>
+        <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
 
         <ApplicationId>com.actito.sample.app.dev.notification-service-extension</ApplicationId>
 
@@ -25,6 +26,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Actito.NotificationServiceExtension.iOS\Actito.NotificationServiceExtension.iOS.csproj" />
+        <PackageReference Include="Actito.NotificationServiceExtension.iOS" Version="5.1.0-canary.5" />
     </ItemGroup>
 </Project>
