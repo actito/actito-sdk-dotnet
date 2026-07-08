@@ -2,6 +2,8 @@ using System.Windows.Input;
 using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls.Shapes;
 using ActitoSdk.Inbox.Core.Models;
+using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Extensions;
 using Sample.ViewModels;
 using LayoutAlignment = Microsoft.Maui.Primitives.LayoutAlignment;
 
@@ -10,18 +12,18 @@ namespace Sample.Pages.Inbox;
 public partial class InboxPage : ContentPage
 {
     public ICommand ItemTappedCommand { get; }
-    
+
     public InboxPage()
     {
         InitializeComponent();
-        
+
         ItemTappedCommand = new Command<ActitoInboxItem>(OnItemTapped);
     }
 
     protected override void OnDisappearing()
     {
         base.OnDisappearing();
-        
+
         var viewModel = (InboxViewModel)BindingContext;
         viewModel.Cleanup();
     }
@@ -29,7 +31,15 @@ public partial class InboxPage : ContentPage
     private void OnItemTapped(ActitoInboxItem item)
     {
         var viewModel = (InboxViewModel)BindingContext;
-        var popup = new Popup();
+        var popup = new Popup
+        {
+            WidthRequest = Width,
+            Margin = 0,
+            Padding = 0,
+            HorizontalOptions = LayoutOptions.Fill,
+            VerticalOptions = LayoutOptions.End,
+            BackgroundColor = Colors.Transparent
+        };
 
         popup.Content = new Border
         {
@@ -48,7 +58,7 @@ public partial class InboxPage : ContentPage
                         Command = new Command(() =>
                         {
                             viewModel.Open(item);
-                            popup.Close();
+                            popup.CloseAsync();
                         }),
                     },
                     new Button
@@ -59,7 +69,7 @@ public partial class InboxPage : ContentPage
                         Command = new Command(() =>
                         {
                             viewModel.MarkAsRead(item);
-                            popup.Close();
+                            popup.CloseAsync();
                         }),
                     },
                     new Button
@@ -70,7 +80,7 @@ public partial class InboxPage : ContentPage
                         Command = new Command( () =>
                         {
                             viewModel.Remove(item);
-                            popup.Close();
+                            popup.CloseAsync();
                         }),
                     },
                     new Button
@@ -78,16 +88,12 @@ public partial class InboxPage : ContentPage
                         Text = "Close",
                         TextColor = Colors.Black,
                         BackgroundColor = Colors.White,
-                        Command = new Command(() => popup.Close()),
+                        Command = new Command(() => popup.CloseAsync())
                     },
                 }
             }
         };
 
-        popup.HorizontalOptions = LayoutAlignment.Fill;
-        popup.VerticalOptions = LayoutAlignment.End;
-        popup.Color = Colors.Transparent;
-
-        this.ShowPopup(popup);
+        this.ShowPopupAsync(popup);
     }
 }
