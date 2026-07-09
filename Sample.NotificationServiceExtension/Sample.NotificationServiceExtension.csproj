@@ -26,6 +26,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Actito.NotificationServiceExtension.iOS" Version="5.1.0-canary.5" />
+        <ProjectReference Include="..\Actito.NotificationServiceExtension.iOS\Actito.NotificationServiceExtension.iOS.csproj" />
     </ItemGroup>
 </Project>
