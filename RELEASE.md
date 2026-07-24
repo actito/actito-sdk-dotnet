@@ -3,7 +3,7 @@
 1. Update the `<Version>` tag in `Directory.Build.props`.
 2. Download the XCFrameworks from the CDN.
 ```shell
-ruby scripts/download-xcframeworks.rb --version x.y.z
+ruby scripts/download-xcframeworks.rb
 ```
 3. Update all generated bindings.
 ```shell
