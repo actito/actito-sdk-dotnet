@@ -30,9 +30,9 @@ public class ActitoNotification
     /// <remarks>
     /// This value is defined by Actito and is used to distinguish different
     /// notification behaviors.
-    /// 
+    ///
     /// Supported notification types:
-    /// 
+    ///
     /// - `re.notifica.notification.None`
     /// - `re.notifica.notification.Alert`
     /// - `re.notifica.notification.InAppBrowser`
@@ -46,6 +46,7 @@ public class ActitoNotification
     /// - `re.notifica.notification.Rate`
     /// - `re.notifica.notification.Passbook`
     /// - `re.notifica.notification.Store`
+    /// - `re.notifica.notification.Pass`
     /// </remarks>
     public string Type { get; }
 
@@ -124,7 +125,7 @@ public class ActitoNotificationContent
     /// </summary>
     /// <remarks>
     /// Supported content types:
-    /// 
+    ///
     /// - `re.notifica.content.HTML`
     /// - `re.notifica.content.PKPass`
     /// - `re.notifica.content.GooglePlayDetails`
@@ -161,7 +162,7 @@ public class ActitoNotificationAction
     /// </summary>
     /// <remarks>
     /// Supported action types:
-    /// 
+    ///
     /// - `re.notifica.action.App`
     /// - `re.notifica.action.Browser`
     /// - `re.notifica.action.Callback`
