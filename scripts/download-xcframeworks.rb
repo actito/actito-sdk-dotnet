@@ -1,29 +1,31 @@
 require 'fileutils'
+require 'json'
 require 'open-uri'
-require 'optparse'
-require 'ostruct'
 require 'zip'
 require_relative 'lib/project'
 require_relative 'lib/terminal'
 
-options = OpenStruct.new
-OptionParser.new do |opt|
-  opt.on('-v', '--version VERSION', String, 'The version to download.') { |o| options.version = o }
-end.parse!
+raise ArgumentError, "Unexpected arguments: #{ARGV.join(' ')}" unless ARGV.empty?
 
-def options.require_argument(key, message)
-  raise OptionParser::MissingArgument, message if self[key].nil?
+package_resolved_path = File.expand_path(
+  '../Actito.Bindings.xcworkspace/xcshareddata/swiftpm/Package.resolved',
+  __dir__
+)
+package_resolved = JSON.parse(File.read(package_resolved_path))
+actito_sdk_pin = package_resolved.fetch('pins').find do |pin|
+  pin.fetch('identity') == 'actito-sdk-ios'
 end
 
-options.require_argument('version', 'The version is required. Please provide it by using -v or --version.')
+raise 'Could not find actito-sdk-ios in Package.resolved.' if actito_sdk_pin.nil?
 
+version = actito_sdk_pin.fetch('state').fetch('version')
 
 puts "▸ Creating temporary directory".green
 FileUtils.rm_rf('.tmp')
 FileUtils.mkdir('.tmp')
 
 puts "▸ Downloading XCFrameworks".green
-open("https://cdn-mobile.actito.com/libs/ios/#{options.version}/cocoapods.zip") do |file|
+open("https://cdn-mobile.actito.com/libs/ios/#{version}/cocoapods.zip") do |file|
   Zip::File.open_buffer(file.read) do |zip_file|
     zip_file.each do |f|
       fpath = File.join('.tmp', f.name)

@@ -221,7 +221,7 @@ class CSProject
     command = <<~COMMAND
       sharpie bind --output=sharpie-out \
         --namespace=#{root_namespace} \
-        --sdk=iphoneos18.2 \
+        --sdk=#{latest_sharpie_sdk} \
         --scope=Headers \
         Headers/#{binding_scheme}-Swift.h
     COMMAND
@@ -237,8 +237,12 @@ class CSProject
   end
 
   private def latest_sharpie_sdk
-    _, output = capture_system_command_output('sharpie xcode -sdks', stream_output: false)
-    output.match(/(iphoneos\d+\.\d+)/).captures[0]
+    _, version = capture_system_command_output(
+      'xcrun --sdk iphoneos --show-sdk-version',
+      stream_output: false
+    )
+
+    "iphoneos#{version.strip}"
   end
 
   private def depends_on_core
