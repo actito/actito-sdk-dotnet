@@ -3,12 +3,14 @@
   <attr path="/api/package[@name='com.actito.geo.models']" name="managedName">ActitoSdk.Geo.Android.Binding.Models</attr>
 
   <remove-node path="/api/package[starts-with(@name, 'com.actito.geo.internal')]" />
-  <remove-node path="/api/package[starts-with(@name, 'com.actito.geo.gms')]" />
   <remove-node path="/api/package[starts-with(@name, 'com.actito.geo.ktx')]" />
-  <remove-node path="/api/package[starts-with(@name, 'com.actito.geo')]/class[contains(@name, 'JsonAdapter')]" />
   <remove-node path="/api/package[starts-with(@name, 'com.actito.geo')]/class[contains(@name, '.Creator')]" />
   <remove-node path="/api/package[starts-with(@name, 'com.actito.geo')]/class[contains(@name, '.Companion')]" />
   <remove-node path="/api/package[starts-with(@name, 'com.actito.geo')]/class/field[contains(@type, '.Companion')]" />
 
   <remove-node path="/api/package[@name='com.actito.geo']/class[@name='ActitoOptionsKt']" />
+
+  <!-- BroadcastReceiver.onReceive parameters are annotated nullable in the base class. Match to avoid CS8765. -->
+  <attr path="/api/package[@name='com.actito.geo']/class[@name='ActitoGeoIntentReceiver']/method[@name='onReceive']/parameter[@name='context']" name="managedType">Android.Content.Context?</attr>
+  <attr path="/api/package[@name='com.actito.geo']/class[@name='ActitoGeoIntentReceiver']/method[@name='onReceive']/parameter[@name='intent']" name="managedType">Android.Content.Intent?</attr>
 </metadata>

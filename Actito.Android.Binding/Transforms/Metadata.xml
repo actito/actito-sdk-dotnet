@@ -11,4 +11,8 @@
 
     <remove-node path="/api/package[@name='com.actito']/class[@name='Actito']/method[@name='getOptions']" />
     <remove-node path="/api/package[@name='com.actito']/interface[@name='InternalActitoApi']"/>
+
+    <!-- BroadcastReceiver.onReceive parameters are annotated nullable in the base class. Match to avoid CS8765. -->
+    <attr path="/api/package[@name='com.actito']/class[@name='ActitoIntentReceiver']/method[@name='onReceive']/parameter[@name='context']" name="managedType">Android.Content.Context?</attr>
+    <attr path="/api/package[@name='com.actito']/class[@name='ActitoIntentReceiver']/method[@name='onReceive']/parameter[@name='intent']" name="managedType">Android.Content.Intent?</attr>
 </metadata>
