@@ -15,4 +15,8 @@
     <!-- BroadcastReceiver.onReceive parameters are annotated nullable in the base class. Match to avoid CS8765. -->
     <attr path="/api/package[@name='com.actito']/class[@name='ActitoIntentReceiver']/method[@name='onReceive']/parameter[@name='context']" name="managedType">Android.Content.Context?</attr>
     <attr path="/api/package[@name='com.actito']/class[@name='ActitoIntentReceiver']/method[@name='onReceive']/parameter[@name='intent']" name="managedType">Android.Content.Intent?</attr>
+
+    <!-- Kotlin source declares updateUserData(userData: Map<String, String?>, ...) - the nullable value type is erased from the JVM signature. 
+         Restore it to match the type and avoid CS8620. -->
+    <attr path="/api/package[@name='com.actito']/class[@name='ActitoDeviceComponent']/method[@name='updateUserData']/parameter[@name='userData']" name="managedType">System.Collections.Generic.IDictionary&lt;string, string?&gt;</attr>
 </metadata>
