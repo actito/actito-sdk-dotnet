@@ -60,8 +60,10 @@ internal static class NativeConverter
         if (unknownNotification.From != null)
             result["from"] = unknownNotification.From;
 
+#pragma warning disable CS0618 // This attribute was deprecated in Firebase Messaging. Check their documentation for more information.
         if (unknownNotification.To != null)
             result["to"] = unknownNotification.To;
+#pragma warning restore CS0618
 
         result["sentTime"] = unknownNotification.SentTime;
         result["ttl"] = unknownNotification.Ttl;
