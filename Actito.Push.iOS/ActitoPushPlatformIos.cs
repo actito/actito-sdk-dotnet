@@ -112,7 +112,9 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
                     options |= UNAuthorizationOptions.CriticalAlert;
                     break;
                 case ActitoAuthorizationOptions.Announcement:
-                    options |= UNAuthorizationOptions.Announcement;
+                    // iOS 15 and later UNAuthorizationOptions.Announcement is always included (https://developer.apple.com/documentation/usernotifications/unauthorizationoptions/announcement)
+                    if (!OperatingSystem.IsIOSVersionAtLeast(15))
+                        options |= UNAuthorizationOptions.Announcement;
                     break;
             }
         }
