@@ -15,4 +15,7 @@
     <!-- BroadcastReceiver.onReceive parameters are annotated nullable in the base class. Match to avoid CS8765. -->
     <attr path="/api/package[@name='com.actito']/class[@name='ActitoIntentReceiver']/method[@name='onReceive']/parameter[@name='context']" name="managedType">Android.Content.Context?</attr>
     <attr path="/api/package[@name='com.actito']/class[@name='ActitoIntentReceiver']/method[@name='onReceive']/parameter[@name='intent']" name="managedType">Android.Content.Intent?</attr>
+
+    <!-- BG8501 (no event name provided): events already exposed via broadcast receiver. Passing empty name to prevent generation. -->
+    <attr path="/api/package[@name='com.actito']/class[@name='Actito']/method[@name='addListener']" name="eventName" />
 </metadata>
