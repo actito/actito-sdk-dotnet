@@ -7,8 +7,7 @@ using LayoutAlignment = Microsoft.Maui.Primitives.LayoutAlignment;
 
 namespace Sample.UserInbox.Pages.Inbox;
 
-[QueryProperty(nameof(Token), "token")]
-public partial class InboxPage : ContentPage
+public partial class InboxPage : ContentPage, IQueryAttributable
 {
     public InboxPage(InboxViewModel viewModel)
     {
@@ -16,25 +15,18 @@ public partial class InboxPage : ContentPage
 
         BindingContext = viewModel;
         ItemTappedCommand = new Command<ActitoUserInboxItem>(OnItemTapped);
+
+        Loaded += (_, _) => viewModel.SetupListeners();
+        Unloaded += (_, _) => viewModel.CleanListeners();
     }
 
-    public required string Token { get; set; }
     public ICommand ItemTappedCommand { get; }
 
-    protected override void OnAppearing()
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
-        base.OnAppearing();
-
         var viewModel = (InboxViewModel)BindingContext;
-        viewModel.AccessToken = Token;
-        viewModel.SetupListeners();
+        viewModel.AccessToken = (string)query["token"];
         viewModel.RefreshCommand.Execute(null);
-    }
-
-    protected override void OnDisappearing()
-    {
-        var viewModel = (InboxViewModel)BindingContext;
-        viewModel.CleanListeners();
     }
 
     private void OnItemTapped(ActitoUserInboxItem item)
