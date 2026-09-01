@@ -31,7 +31,7 @@ public class ActitoPushPlatformAndroid : IActitoPushPlatform
     public event EventHandler<ActitoUnknownNotificationOpenedEventArgs>? UnknownNotificationOpened;
 #pragma warning restore CS0067
     public event EventHandler<ActitoNotificationActionOpenedEventArgs>? NotificationActionOpened;
-#pragma warning disable CS0067 // See above.
+#pragma warning disable CS0067 // Implemented only in iOS SDK.
     public event EventHandler<ActitoUnknownNotificationActionOpenedEventArgs>? UnknownNotificationActionOpened;
 #pragma warning restore CS0067
     public event EventHandler<ActitoNotificationSettingsChangedEventArgs>? NotificationSettingsChanged;
