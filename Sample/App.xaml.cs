@@ -32,7 +32,11 @@ public partial class App : Application
             ActitoPushUI.PresentNotification(e.Notification, activity!);
 
 #elif IOS
-		var rootViewController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+		var rootViewController = UIApplication.SharedApplication.ConnectedScenes
+			.OfType<UIWindowScene>()
+			.SelectMany(scene => scene.Windows)
+			.FirstOrDefault(window => window.IsKeyWindow)?
+			.RootViewController;
 
 		if (rootViewController is null)
 		{
@@ -66,7 +70,11 @@ public partial class App : Application
             ActitoPushUI.PresentAction(e.Notification, e.Action, activity!);
 
 #elif IOS
-            var rootViewController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+            var rootViewController = UIApplication.SharedApplication.ConnectedScenes
+                .OfType<UIWindowScene>()
+                .SelectMany(scene => scene.Windows)
+                .FirstOrDefault(window => window.IsKeyWindow)?
+                .RootViewController;
 
             if (rootViewController is null)
             {
@@ -92,7 +100,7 @@ public partial class App : Application
 
 		await Dispatcher.DispatchAsync(async () =>
 		{
-			await Windows[0].Page!.DisplayAlert("Deep link received", uri.ToString(), "OK");
+			await Windows[0].Page!.DisplayAlertAsync("Deep link received", uri.ToString(), "OK");
 		});
 	}
 
@@ -318,7 +326,7 @@ public partial class App : Application
 		};
 	}
 	
-	private void LogEvent(string message, object prop = null)
+	private void LogEvent(string message, object? prop = null)
 	{
 		if (prop != null)
 		{

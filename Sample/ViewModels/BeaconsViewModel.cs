@@ -7,7 +7,7 @@ namespace Sample.ViewModels;
 
 public partial class BeaconsViewModel : ObservableObject
 {
-    [ObservableProperty] private  IList<ActitoBeacon> _beacons;
+    [ObservableProperty] private IList<ActitoBeacon> _beacons = Array.Empty<ActitoBeacon>();
 
     public BeaconsViewModel()
     {
