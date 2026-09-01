@@ -19,8 +19,6 @@ internal static class NativeConverter
             default:
                 throw new ArgumentException($"Unknown transport: {transport}");
         }
-        
-        return null;
     }
 
     internal static ActitoNotificationDeliveryMechanism FromNativeDeliveryMechanism(

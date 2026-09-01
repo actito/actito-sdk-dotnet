@@ -21,7 +21,7 @@ public partial class RemoteNotificationsCardView : ContentView
 
         MainThread.InvokeOnMainThreadAsync(async () =>
         {
-            await Shell.Current.DisplayAlert(
+            await Shell.Current.DisplayAlertAsync(
                 title: "Notifications Status",
                 message: $"AllowedUI: {allowedUI}" +
                          $"\nEnabled: {enabled}" +
@@ -73,7 +73,7 @@ public partial class RemoteNotificationsCardView : ContentView
 
         if (Permissions.ShouldShowRationale<Permissions.PostNotifications>())
         {
-            await Shell.Current.DisplayAlert(
+            await Shell.Current.DisplayAlertAsync(
                 title: "Notifications Rational",
                 message: "Remote notifications rational message.",
                 cancel: "OK"

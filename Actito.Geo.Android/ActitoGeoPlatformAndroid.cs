@@ -21,8 +21,10 @@ public class ActitoGeoPlatformAndroid : IActitoGeoPlatform
     public event EventHandler<ActitoBeaconEnteredEventArgs>? BeaconEntered;
     public event EventHandler<ActitoBeaconExitedEventArgs>? BeaconExited;
     public event EventHandler<ActitoBeaconsRangedEventArgs>? BeaconsRanged;
+#pragma warning disable CS0067 // Visit and Heading are iOS only.
     public event EventHandler<ActitoVisitEventArgs>? Visit;
     public event EventHandler<ActitoHeadingUpdatedEventArgs>? HeadingUpdated;
+#pragma warning restore CS0067
 
     public bool HasLocationServicesEnabled => NativeActito.HasLocationServicesEnabled;
 

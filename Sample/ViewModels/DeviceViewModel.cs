@@ -104,7 +104,7 @@ public partial class DeviceViewModel : ObservableObject
     {
         try
         {
-            await Actito.Device.UpdateUserDataAsync(new Dictionary<string, string>
+            await Actito.Device.UpdateUserDataAsync(new Dictionary<string, string?>
                 {
                     { "firstName", "FirstNameExample" },
                     { "lastName", "LastNameExample" }

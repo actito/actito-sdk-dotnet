@@ -258,7 +258,9 @@ public class ActitoPlatformAndroid : IActitoPlatform
     public async Task UpdateUserDataAsync(IDictionary<string, string?> userData)
     {
         var callback = new ActitoAwaitableCallback();
+#pragma warning disable CS8620 // Kotlin source declares updateUserData(userData: Map<String, String?>, ...); the nullable value type is erased from the signature. Passing as-is preserves null values.
         NativeActito.Device().UpdateUserData(userData, callback);
+#pragma warning restore CS8620
 
         await callback.Task;
     }

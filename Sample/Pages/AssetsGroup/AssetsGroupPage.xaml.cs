@@ -17,7 +17,7 @@ public partial class AssetsGroupPage : ContentPage
         {
             MainThread.InvokeOnMainThreadAsync( async () =>
             {
-                await DisplayAlert("Error", "Please enter assets group", "OK");
+                await DisplayAlertAsync("Error", "Please enter assets group", "OK");
             });
             
             return;

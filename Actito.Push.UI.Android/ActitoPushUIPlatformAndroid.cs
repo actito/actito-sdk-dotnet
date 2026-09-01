@@ -22,7 +22,9 @@ public class ActitoPushUIPlatformAndroid : IActitoPushUIPlatform
     public event EventHandler<ActitoNotificationUrlClickedEventArgs>? NotificationUrlClicked;
     public event EventHandler<ActitoActionWillExecuteEventArgs>? ActionWillExecute;
     public event EventHandler<ActitoActionExecutedEventArgs>? ActionExecuted;
+#pragma warning disable CS0067 // Implemented only in iOS SDK.
     public event EventHandler<ActitoActionNotExecutedEventArgs>? ActionNotExecuted;
+#pragma warning restore CS0067
     public event EventHandler<ActitoActionFailedToExecuteEventArgs>? ActionFailedToExecute;
     public event EventHandler<ActitoCustomActionReceivedEventArgs>? CustomActionReceived;
 

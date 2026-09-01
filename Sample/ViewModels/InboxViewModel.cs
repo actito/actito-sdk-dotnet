@@ -18,11 +18,14 @@ public partial class InboxViewModel : ObservableObject
     public InboxViewModel()
     {
         Items = ActitoInbox.Items;
+    }
 
+    public void SetupListeners()
+    {
         ActitoInbox.InboxUpdated += OnInboxUpdated;
     }
 
-    public void Cleanup()
+    public void CleanListeners()
     {
         ActitoInbox.InboxUpdated -= OnInboxUpdated;
     }
@@ -55,7 +58,11 @@ public partial class InboxViewModel : ObservableObject
             try
             {
                 var notification = await ActitoInbox.OpenAsync(item);
-                var rootViewController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+                var rootViewController = UIApplication.SharedApplication.ConnectedScenes
+                    .OfType<UIWindowScene>()
+                    .SelectMany(scene => scene.Windows)
+                    .FirstOrDefault(window => window.IsKeyWindow)?
+                    .RootViewController;
 
                 if (rootViewController is null)
                 {

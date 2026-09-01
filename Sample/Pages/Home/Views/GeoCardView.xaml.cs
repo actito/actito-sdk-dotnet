@@ -17,7 +17,7 @@ public partial class GeoCardView : ContentView
 
         MainThread.InvokeOnMainThreadAsync(async () =>
         {
-            await Shell.Current.DisplayAlert(
+            await Shell.Current.DisplayAlertAsync(
                 title: "Location Status",
                 message: $"\nhasLocationServicesEnabled: {hasLocationServicesEnabled}" +
                          $"\nhasBluetoothEnabled: {hasBluetoothEnabled}",
@@ -64,7 +64,7 @@ public partial class GeoCardView : ContentView
 
         if (Permissions.ShouldShowRationale<Permissions.LocationWhenInUse>())
         {
-            await Shell.Current.DisplayAlert(
+            await Shell.Current.DisplayAlertAsync(
                 title: "Location Rational",
                 message: "Location Foreground rational message.",
                 cancel: "OK"
@@ -83,7 +83,7 @@ public partial class GeoCardView : ContentView
 
         if (Permissions.ShouldShowRationale<Permissions.LocationAlways>())
         {
-            await Shell.Current.DisplayAlert(
+            await Shell.Current.DisplayAlertAsync(
                 title: "Location Rational",
                 message: "Location Background rational message.",
                 cancel: "OK"
@@ -102,7 +102,7 @@ public partial class GeoCardView : ContentView
 
         if (Permissions.ShouldShowRationale<Permissions.Bluetooth>())
         {
-            await Shell.Current.DisplayAlert(
+            await Shell.Current.DisplayAlertAsync(
                 title: "Bluetooth Rational",
                 message: "Bluetooth rational message.",
                 cancel: "OK"

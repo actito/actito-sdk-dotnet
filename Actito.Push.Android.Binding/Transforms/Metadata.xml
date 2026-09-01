@@ -8,4 +8,8 @@
   <remove-node path="/api/package[starts-with(@name, 'com.actito.push')]/class[contains(@name, '.Creator')]" />
   <remove-node path="/api/package[starts-with(@name, 'com.actito.push')]/class[contains(@name, '.Companion')]" />
   <remove-node path="/api/package[starts-with(@name, 'com.actito.push')]/class/field[contains(@type, '.Companion')]" />
+
+  <!-- BroadcastReceiver.onReceive parameters are annotated nullable in the base class. Match to avoid CS8765. -->
+  <attr path="/api/package[@name='com.actito.push']/class[@name='ActitoPushIntentReceiver']/method[@name='onReceive']/parameter[@name='context']" name="managedType">Android.Content.Context?</attr>
+  <attr path="/api/package[@name='com.actito.push']/class[@name='ActitoPushIntentReceiver']/method[@name='onReceive']/parameter[@name='intent']" name="managedType">Android.Content.Intent?</attr>
 </metadata>
