@@ -111,9 +111,6 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
                 case ActitoAuthorizationOptions.CriticalAlert:
                     options |= UNAuthorizationOptions.CriticalAlert;
                     break;
-                case ActitoAuthorizationOptions.Announcement:
-                    options |= UNAuthorizationOptions.Announcement;
-                    break;
             }
         }
 
