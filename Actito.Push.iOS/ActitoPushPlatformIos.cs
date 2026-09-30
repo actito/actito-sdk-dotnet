@@ -143,9 +143,6 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
                 case ActitoCategoryOptions.HiddenPreviewsShowSubtitle:
                     options |= UNNotificationCategoryOptions.HiddenPreviewsShowSubtitle;
                     break;
-                case ActitoCategoryOptions.AllowAnnouncement:
-                    options |= UNNotificationCategoryOptions.AllowAnnouncement;
-                    break;
             }
         }
 
