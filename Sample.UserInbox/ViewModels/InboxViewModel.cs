@@ -76,7 +76,7 @@ public partial class InboxViewModel : ObservableObject
             try
             {
                 var notification = await ActitoUserInbox.OpenAsync(item);
-                var rootViewController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+                var rootViewController = WindowStateManager.Default.GetCurrentUIWindow()?.RootViewController;
 
                 if (rootViewController is null)
                 {
