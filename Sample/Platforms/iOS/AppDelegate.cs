@@ -57,40 +57,4 @@ public class AppDelegate : MauiUIApplicationDelegate, IUIApplicationDelegate
     {
         ActitoPush.DidReceiveRemoteNotification(application, userInfo, completionHandler);
     }
-
-    public override bool OpenUrl(UIApplication application, NSUrl url, NSDictionary options)
-    {
-        if (Actito.HandleTestDeviceUrl(url))
-        {
-            return true;
-        }
-
-        if (Actito.HandleDynamicLinkUrl(url))
-        {
-            return true;
-        }
-
-        HandleAppLink(url.AbsoluteString);
-        return false;
-    }
-
-    public override bool ContinueUserActivity(UIApplication application, NSUserActivity userActivity,
-        UIApplicationRestorationHandler completionHandler)
-    {
-        var url = userActivity.WebPageUrl;
-        if (url == null) return false;
-
-        if (Actito.HandleTestDeviceUrl(url))
-        {
-            return true;
-        }
-
-        return Actito.HandleDynamicLinkUrl(url);
-    }
-
-    private static void HandleAppLink(string url)
-    {
-        if (Uri.TryCreate(url, UriKind.RelativeOrAbsolute, out var uri))
-            App.Current?.SendOnAppLinkRequestReceived(uri);
-    }
 }
