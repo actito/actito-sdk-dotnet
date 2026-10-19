@@ -22,7 +22,7 @@
 		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
 		<WindowsPackageType>None</WindowsPackageType>
 
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">13.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">23.0</SupportedOSPlatformVersion>
 
 		<CodesignEntitlements>Platforms\iOS\Entitlements.plist</CodesignEntitlements>
@@ -57,8 +57,8 @@
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="14.2.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.80" />
-		<PackageReference Include="Microsoft.Maui.Essentials" Version="10.0.80" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.110" />
+		<PackageReference Include="Microsoft.Maui.Essentials" Version="10.0.110" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.9" />
 
 		<ProjectReference Include="..\Actito\Actito.csproj" />
