@@ -29,6 +29,6 @@ dotnet pack -o packages/x.y.z
 ```
 6. Release the libraries.
 ```shell
-dotnet nuget push "packages/x.y.z/*.nupkg" -k "..." -s https://api.nuget.org/v3/index.json
+dotnet nuget push "packages/x.y.z/*.nupkg" -k "..." -s https://api.nuget.org/v3/index.json --skip-duplicate
 ```
 7. Create a GitHub release with the contents of the `CHANGELOG.md`.
