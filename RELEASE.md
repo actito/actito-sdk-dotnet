@@ -1,13 +1,26 @@
 # Release process
 
+## Prerequisites
+
+The scripts in `scripts/` require the Ruby version pinned in `.ruby-version` and the gems in the `Gemfile`.
+
+```shell
+rbenv install --skip-existing
+bundle install
+```
+
+Run every script through Bundler (`bundle exec ruby scripts/<script>.rb`) so it uses the locked gem versions.
+
+## Steps
+
 1. Update the `<Version>` tag in `Directory.Build.props`.
 2. Download the XCFrameworks from the CDN.
 ```shell
-ruby scripts/download-xcframeworks.rb
+bundle exec ruby scripts/download-xcframeworks.rb
 ```
 3. Update all generated bindings.
 ```shell
-ruby scripts/update-all-bindings.rb --clean
+bundle exec ruby scripts/update-all-bindings.rb --clean
 ```
 4. Update the `CHANGELOG.md`.
 5. Build the NuGet packages.
