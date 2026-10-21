@@ -5,11 +5,11 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
 
-        <Version>5.2.0</Version>
+        <Version>5.3.0</Version>
 
         <TargetPlatformIdentifier>$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)'))</TargetPlatformIdentifier>
         <SupportedOSPlatformVersion Condition="'$(TargetPlatformIdentifier)' == 'android'">23</SupportedOSPlatformVersion>
-        <SupportedOSPlatformVersion Condition="'$(TargetPlatformIdentifier)' == 'ios'">13.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="'$(TargetPlatformIdentifier)' == 'ios'">15.0</SupportedOSPlatformVersion>
 
         <Authors>Actito</Authors>
         <Description>Official Actito .NET SDK. Implements the power of the Actito platform in .NET MAUI applications.</Description>

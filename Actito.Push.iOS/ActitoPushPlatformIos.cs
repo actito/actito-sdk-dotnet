@@ -111,9 +111,6 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
                 case ActitoAuthorizationOptions.CriticalAlert:
                     options |= UNAuthorizationOptions.CriticalAlert;
                     break;
-                case ActitoAuthorizationOptions.Announcement:
-                    options |= UNAuthorizationOptions.Announcement;
-                    break;
             }
         }
 
@@ -146,9 +143,6 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
                 case ActitoCategoryOptions.HiddenPreviewsShowSubtitle:
                     options |= UNNotificationCategoryOptions.HiddenPreviewsShowSubtitle;
                     break;
-                case ActitoCategoryOptions.AllowAnnouncement:
-                    options |= UNNotificationCategoryOptions.AllowAnnouncement;
-                    break;
             }
         }
 
@@ -167,16 +161,11 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
 
         foreach (var option in presentationOptions)
         {
-#if IOS14_0_OR_GREATER
             if (option is ActitoPresentationOptions.Banner or ActitoPresentationOptions.Alert)
                 options |= UNNotificationPresentationOptions.Banner;
 
             if (option is ActitoPresentationOptions.List)
                 options |= UNNotificationPresentationOptions.List;
-#else
-            if (option is ActitoPresentationOptions.Alert) 
-                options |= UNNotificationPresentationOptions.Alert;
-#endif
 
             if (option is ActitoPresentationOptions.Badge)
                 options |= UNNotificationPresentationOptions.Badge;

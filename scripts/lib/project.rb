@@ -1,4 +1,5 @@
 require 'fileutils'
+require 'open3'
 require_relative 'system'
 require_relative 'terminal'
 
@@ -237,10 +238,8 @@ class CSProject
   end
 
   private def latest_sharpie_sdk
-    _, version = capture_system_command_output(
-      'xcrun --sdk iphoneos --show-sdk-version',
-      stream_output: false
-    )
+    version, status = Open3.capture2('xcrun --sdk iphoneos --show-sdk-version')
+    raise 'Could not determine the iOS SDK version.' unless status.success?
 
     "iphoneos#{version.strip}"
   end

@@ -32,5 +32,6 @@ public enum ActitoCategoryOptions
     /// <summary>
     /// Allows notifications in this category to be announced using voice assistance.
     /// </summary>
+    [Obsolete("This option is ignored on iOS 15 and later.")]
     AllowAnnouncement,
 }
