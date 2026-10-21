@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Upcoming release
+## 5.3.0
 
 - Bump minimum deployment target to iOS 15 for XCode 27 compatibility
 - Deprecate `ActitoAuthorizationOptions.Announcement` and `ActitoCategoryOptions.AllowAnnouncement` as they have no effect on iOS 15 and later
