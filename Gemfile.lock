@@ -1,0 +1,23 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ostruct (0.6.3)
+    rubyzip (3.7.0)
+
+PLATFORMS
+  arm64-darwin-25
+  ruby
+
+DEPENDENCIES
+  ostruct
+  rubyzip (~> 3.0)
+
+CHECKSUMS
+  ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
+  rubyzip (3.7.0) sha256=65c19294da75297a939006f3516deacc33185fbd721ff1954f7a231db6d3e121
+
+RUBY VERSION
+  ruby 4.0.6
+
+BUNDLED WITH
+  4.0.16
