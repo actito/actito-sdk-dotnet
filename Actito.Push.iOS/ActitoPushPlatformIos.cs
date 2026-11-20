@@ -111,11 +111,6 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
                 case ActitoAuthorizationOptions.CriticalAlert:
                     options |= UNAuthorizationOptions.CriticalAlert;
                     break;
-                case ActitoAuthorizationOptions.Announcement:
-                    // iOS 15 and later UNAuthorizationOptions.Announcement is always included (https://developer.apple.com/documentation/usernotifications/unauthorizationoptions/announcement)
-                    if (!OperatingSystem.IsIOSVersionAtLeast(15))
-                        options |= UNAuthorizationOptions.Announcement;
-                    break;
             }
         }
 
@@ -148,9 +143,6 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
                 case ActitoCategoryOptions.HiddenPreviewsShowSubtitle:
                     options |= UNNotificationCategoryOptions.HiddenPreviewsShowSubtitle;
                     break;
-                case ActitoCategoryOptions.AllowAnnouncement:
-                    options |= UNNotificationCategoryOptions.AllowAnnouncement;
-                    break;
             }
         }
 
@@ -169,19 +161,11 @@ public class ActitoPushPlatformIos : IActitoPushPlatform
 
         foreach (var option in presentationOptions)
         {
-            if (OperatingSystem.IsIOSVersionAtLeast(14))
-            {
-                if (option is ActitoPresentationOptions.Banner or ActitoPresentationOptions.Alert)
-                    options |= UNNotificationPresentationOptions.Banner;
+            if (option is ActitoPresentationOptions.Banner or ActitoPresentationOptions.Alert)
+                options |= UNNotificationPresentationOptions.Banner;
 
-                if (option is ActitoPresentationOptions.List)
-                    options |= UNNotificationPresentationOptions.List;
-            }
-            else
-            {
-                if (option is ActitoPresentationOptions.Alert)
-                    options |= UNNotificationPresentationOptions.Alert;
-            }
+            if (option is ActitoPresentationOptions.List)
+                options |= UNNotificationPresentationOptions.List;
 
             if (option is ActitoPresentationOptions.Badge)
                 options |= UNNotificationPresentationOptions.Badge;

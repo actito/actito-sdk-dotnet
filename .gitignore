@@ -48,6 +48,10 @@ msbuild.wrn
 # Xcode User settings
 xcuserdata/
 
+# Xcode per-project SwiftPM state (created by dotnet build; versions are pinned in
+# project.pbxproj and Actito.Bindings.xcworkspace/xcshareddata/swiftpm/Package.resolved)
+**/*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+
 ## App packaging
 *.ipa
 *.dSYM.zip

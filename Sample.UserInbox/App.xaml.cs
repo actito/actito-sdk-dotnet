@@ -28,11 +28,7 @@ public partial class App : Application
         ActitoPushUI.PresentNotification(e.Notification, activity!);
 
 #elif IOS
-        var rootViewController = UIApplication.SharedApplication.ConnectedScenes
-            .OfType<UIWindowScene>()
-            .SelectMany(scene => scene.Windows)
-            .FirstOrDefault(window => window.IsKeyWindow)?
-            .RootViewController;
+        var rootViewController = WindowStateManager.Default.GetCurrentUIWindow()?.RootViewController;
 
         if (rootViewController is null)
         {
@@ -66,11 +62,7 @@ public partial class App : Application
         ActitoPushUI.PresentAction(e.Notification, e.Action, activity!);
 
 #elif IOS
-        var rootViewController = UIApplication.SharedApplication.ConnectedScenes
-            .OfType<UIWindowScene>()
-            .SelectMany(scene => scene.Windows)
-            .FirstOrDefault(window => window.IsKeyWindow)?
-            .RootViewController;
+        var rootViewController = WindowStateManager.Default.GetCurrentUIWindow()?.RootViewController;
 
         if (rootViewController is null)
         {

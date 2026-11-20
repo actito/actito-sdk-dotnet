@@ -25,7 +25,7 @@ FileUtils.rm_rf('.tmp')
 FileUtils.mkdir('.tmp')
 
 puts "▸ Downloading XCFrameworks".green
-open("https://cdn-mobile.actito.com/libs/ios/#{version}/cocoapods.zip") do |file|
+URI.open("https://cdn-mobile.actito.com/libs/ios/#{version}/cocoapods.zip") do |file|
   Zip::File.open_buffer(file.read) do |zip_file|
     zip_file.each do |f|
       fpath = File.join('.tmp', f.name)
@@ -41,7 +41,7 @@ ios_projects.each do |project|
 
   destination = File.join(project.directory, 'libs')
 
-  FileUtils.mkdir(destination) unless File.exists?(destination)
+  FileUtils.mkdir(destination) unless File.exist?(destination)
   FileUtils.rm_rf(File.join(destination, '*.xcframework'))
 
   project.xcframeworks.each do |xcframework|
