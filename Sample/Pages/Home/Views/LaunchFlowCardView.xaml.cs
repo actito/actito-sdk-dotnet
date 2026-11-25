@@ -16,7 +16,7 @@ public partial class LaunchFlowCardView : ContentView
         
         MainThread.InvokeOnMainThreadAsync(async () =>
         {
-            await Shell.Current.DisplayAlert(
+            await Shell.Current.DisplayAlertAsync(
                 title: "Actito Status",
                 message: $"Ready: {isReady}\nConfigured: {isConfigured}",
                 cancel: "OK"

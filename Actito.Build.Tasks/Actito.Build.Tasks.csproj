@@ -22,6 +22,9 @@
       <PackageReference Include="Microsoft.Build.Framework" Version="17.14.28" PrivateAssets="All" />
       <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.14.28" PrivateAssets="All" />
       <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.14.28" PrivateAssets="All" />
+
+      <!-- Microsoft.Build.Tasks.Core v17.14.28 pulls in a vulnerable System.Security.Cryptography.Xml. Pin to a patched version. -->
+      <PackageReference Include="System.Security.Cryptography.Xml" Version="9.0.18" PrivateAssets="All" />
     </ItemGroup>
 
     <ItemGroup>

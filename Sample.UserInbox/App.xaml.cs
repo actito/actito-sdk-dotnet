@@ -212,7 +212,7 @@ public partial class App : Application
         };
     }
 
-    private void LogEvent(string message, object prop = null)
+    private void LogEvent(string message, object? prop = null)
     {
         if (prop != null)
         {

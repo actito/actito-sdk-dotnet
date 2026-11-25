@@ -2,10 +2,8 @@ using System.Windows.Input;
 using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls.Shapes;
 using ActitoSdk.Inbox.Core.Models;
-using CommunityToolkit.Maui;
 using CommunityToolkit.Maui.Extensions;
 using Sample.ViewModels;
-using LayoutAlignment = Microsoft.Maui.Primitives.LayoutAlignment;
 
 namespace Sample.Pages.Inbox;
 
@@ -18,14 +16,10 @@ public partial class InboxPage : ContentPage
         InitializeComponent();
 
         ItemTappedCommand = new Command<ActitoInboxItem>(OnItemTapped);
-    }
-
-    protected override void OnDisappearing()
-    {
-        base.OnDisappearing();
 
         var viewModel = (InboxViewModel)BindingContext;
-        viewModel.Cleanup();
+        Loaded += (_, _) => viewModel.SetupListeners();
+        Unloaded += (_, _) => viewModel.CleanListeners();
     }
 
     private void OnItemTapped(ActitoInboxItem item)

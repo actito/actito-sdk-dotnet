@@ -18,11 +18,14 @@ public partial class InboxViewModel : ObservableObject
     public InboxViewModel()
     {
         Items = ActitoInbox.Items;
+    }
 
+    public void SetupListeners()
+    {
         ActitoInbox.InboxUpdated += OnInboxUpdated;
     }
 
-    public void Cleanup()
+    public void CleanListeners()
     {
         ActitoInbox.InboxUpdated -= OnInboxUpdated;
     }

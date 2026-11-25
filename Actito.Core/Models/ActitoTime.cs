@@ -27,10 +27,10 @@ public class ActitoTime
     public int Minutes { get; }
 
     /// <summary>
-    /// Constructor for <see cref="ActitoNotification"/>.
+    /// Constructor for <see cref="ActitoTime"/>.
     /// </summary>
-    /// <exception cref="ArgumentException">If <see cref="ActitoTime.hours"/>
-    /// or <see cref="ActitoTime.minutes"/> are out of range.</exception>
+    /// <exception cref="ArgumentException">If <see cref="ActitoTime.Hours"/>
+    /// or <see cref="ActitoTime.Minutes"/> are out of range.</exception>
     public ActitoTime(int hours, int minutes)
     {
         if (hours < 0 || hours > 23)

@@ -7,7 +7,7 @@ namespace Sample.ViewModels;
 public partial class AssetsGroupViewModel : ObservableObject
 {
 
-    [ObservableProperty] private IList<ActitoAsset> _assets;
+    [ObservableProperty] private IList<ActitoAsset> _assets = Array.Empty<ActitoAsset>();
     
     public async void FetchAssets(string group)
     {

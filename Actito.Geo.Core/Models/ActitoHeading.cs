@@ -14,7 +14,7 @@ public class ActitoHeading
     /// </summary>
     /// <remarks>
     /// This value is relative to magnetic north.
-    /// </remarks
+    /// </remarks>
     public double MagneticHeading { get; }
 
     /// <summary>
@@ -22,7 +22,7 @@ public class ActitoHeading
     /// </summary>
     /// <remarks>
     /// This value is relative to true north.
-    /// </remarks
+    /// </remarks>
     public double TrueHeading { get; }
 
     /// <summary>

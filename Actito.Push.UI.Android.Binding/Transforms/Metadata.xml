@@ -10,4 +10,7 @@
   <remove-node path="/api/package[starts-with(@name, 'com.actito.push.ui.databinding')]" />
 
   <remove-node path="/api/package[@name='com.actito.push.ui']/class[@name='ActitoOptionsKt']" />
+
+  <!-- The notifications package is removed above. Drop the remaining interface reference to avoid BG8C00. -->
+  <remove-node path="/api/package[@name='com.actito.push.ui']/class[@name='NotificationActivity']/implements[@name='com.actito.push.ui.notifications.NotificationContainerFragment.Callback']" />
 </metadata>

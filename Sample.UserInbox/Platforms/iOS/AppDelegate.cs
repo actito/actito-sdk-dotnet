@@ -12,7 +12,7 @@ public class AppDelegate : MauiUIApplicationDelegate, IUIApplicationDelegate
 {
     protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
 
-    public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+    public override bool FinishedLaunching(UIApplication application, NSDictionary? launchOptions)
     {
         var logger = new CoreFoundation.OSLog(subsystem: "com.foo.maui", category: "category");
         logger.Log(OSLogLevel.Error, "FinishedLaunching");
@@ -88,7 +88,7 @@ public class AppDelegate : MauiUIApplicationDelegate, IUIApplicationDelegate
         return Actito.HandleDynamicLinkUrl(url);
     }
 
-    private static void HandleAppLink(string url)
+    private static void HandleAppLink(string? url)
     {
         if (Uri.TryCreate(url, UriKind.RelativeOrAbsolute, out var uri))
             App.Current?.SendOnAppLinkRequestReceived(uri);

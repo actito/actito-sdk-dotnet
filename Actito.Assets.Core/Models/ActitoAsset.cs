@@ -6,7 +6,7 @@ namespace ActitoSdk.Assets.Core.Models;
 /// <remarks>
 /// An <see cref="ActitoAsset"/> contains displayable content such as a title,
 /// optional descriptive text, a link to a binary file, and elements like a button
-/// or metadata. Additional fields are stored in <see cref="ActitoAsset.extra"/>.
+/// or metadata. Additional fields are stored in <see cref="ActitoAsset.Extra"/>.
 /// </remarks>
 public class ActitoAsset
 {

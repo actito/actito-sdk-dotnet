@@ -8,6 +8,4 @@
   <remove-node path="/api/package[starts-with(@name, 'com.actito.loyalty')]/class[contains(@name, '.Creator')]" />
   <remove-node path="/api/package[starts-with(@name, 'com.actito.loyalty')]/class[contains(@name, '.Companion')]" />
   <remove-node path="/api/package[starts-with(@name, 'com.actito.loyalty')]/class/field[contains(@type, '.Companion')]" />
-
-  <remove-node path="/api/package[@name='com.actito.loyalty']/class[@name='ActitoOptionsKt']" />
 </metadata>
