@@ -27,7 +27,7 @@ public class ActitoTime
     public int Minutes { get; }
 
     /// <summary>
-    /// Constructor for <see cref="ActitoNotification"/>.
+    /// Constructor for <see cref="ActitoTime"/>.
     /// </summary>
     /// <exception cref="ArgumentException">If <see cref="ActitoTime.Hours"/>
     /// or <see cref="ActitoTime.Minutes"/> are out of range.</exception>
